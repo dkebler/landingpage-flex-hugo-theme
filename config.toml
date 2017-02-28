@@ -1,0 +1,18 @@
+baseurl = ""
+# theme = "landing-page-hugo"
+languageCode = "en-us"
+title = "For Sale: 4005 Rock Way, Central Point, OR"
+canonifyUrls = "true"
+
+[params]
+    city_state = "Central Point, Oregon"
+    address = "4005 Rock Way"
+    announce = "For Sale"
+    custom_css = ["css/local.css"]
+    navbar_text="For Sale by Owner"
+    intro_bg_img="front-view.jpg"
+
+[[params.social]]
+    title = "email"
+    icon = "envelope-o"
+    url = "mailto:4005@kebler.net"
