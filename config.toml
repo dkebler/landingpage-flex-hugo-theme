@@ -1,16 +1,51 @@
 baseurl = ""
-# theme = "landing-page-hugo"
 languageCode = "en-us"
 title = "For Sale: 4005 Rock Way, Central Point, OR"
 canonifyUrls = "true"
+staticDir ="assets"
+publishDir = "dist"
 
 [params]
-    city_state = "Central Point, Oregon"
-    address = "4005 Rock Way"
-    announce = "For Sale"
-    custom_css = ["css/local.css"]
-    navbar_text="For Sale by Owner"
-    intro_bg_img="front-view.jpg"
+  custom_css = ["css/custom.css"]
+  # font = "Pridi"  # a valid google font name, default Roboto
+
+[params.navbar]
+  text = "For Sale by Owner"  # default is to use the page title
+  font = "Baloo"
+  color = "green"
+  bg_color = "blue"
+
+[params.intro]
+  # img = "intro.jpg"
+  # img_medium = "intro-medium.jpg"  # min 1024
+  # img_small  "intro-small.jpg"
+  # font = "Indie Flower"  # a valid google font name, default Roboto
+  color = "purple"
+  headline = "For Sale"
+  # font_headline = "Lato"  # a valid google font name, defaults to intro font
+  # color_headline = "red"
+  subheadline = "4005 Rock Way"
+  # color_subheadline = "red"
+  subsubheadline = "Central Point, Oregon"
+  # color_subsubheadline = "blue"
+  lines = ["A Rambler Style House","Close to Schools"]
+  # color_lines = "blue"
+  divider = false
+
+  # for background image in static/imgs
+  # put intro.jpg and intro-phone.jpg for background images.
+  # intro-phone.jpg should be suitable for small devices
+
+# [params.sections]
+#     # font = "Lato"
+#     # font_headline = "Lato"
+#     [params.sections.odd]
+#     # color = ""
+#     # bg_color = ""
+#     [params.sections.even]
+#     # color = ""
+#     # bg_color = ""
+
 
 [[params.social]]
     title = "email"

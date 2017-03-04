@@ -1,0 +1,9 @@
+{
+    "tagname-lowercase": true,
+    "doctype-first": false,
+    "tag-pair": true,
+    "attr-value-double-quotes": true,
+    "attr-value-not-empty": true,
+    "attr-no-duplication": true,
+    "space-tab-mixed-disabled": "false"
+}

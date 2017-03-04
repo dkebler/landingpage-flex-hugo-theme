@@ -1,0 +1,20 @@
+    <!-- CSS External Libraries -->
+    <!-- Light Gallery-->
+    <link href="https://cdn.jsdelivr.net/g/lightgallery@1.3.9(css/lightgallery.min.css+css/lg-transitions.css)" rel="stylesheet">
+
+    <!-- Site Base CSS  -->
+    <link href="/css/page.css" rel="stylesheet">
+
+    <!-- Site Navigation CSS  -->
+    <link href="/css/navbar.css" rel="stylesheet">
+
+    <!-- configurable styles -->
+    {{ partial "head/styles.html" . }}
+
+    <!-- configurable styles -->
+    {{ partial "head/gallery.html" . }}
+
+    <!-- Custom/Override CSS files -->
+    {{ range .Site.Params.custom_css }}
+        <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+    {{ end }}

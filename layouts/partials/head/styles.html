@@ -1,0 +1,27 @@
+<!-- Configurable Styles partial to appear in head -->
+ <style>
+{{ with .Site.Params.font }}
+  body,h1,h2,h3,h4,h5,h6 { font-family:{{ . }},Helvetica,Arial,sans-serif; }
+ {{ end }}
+
+ {{ with .Site.Params }}
+
+ {{ with .navbar }}
+
+ {{ with .font }}
+ .navbar { font-family:{{ . }},Helvetica,Arial,sans-serif; }
+ {{ end }}
+
+ {{ with .bg_color }}
+ .navbar { background-color: {{ . }};  }
+ {{ end }}
+
+ {{ with .color }}
+ .navbar-brand div a, .navbar-nav > li > a { color: {{ . }};  }
+ {{ end }}
+
+ {{ end }}  /* end navbar */
+
+ {{ end }}
+
+ </style>

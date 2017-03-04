@@ -1,27 +1,18 @@
-<!-- jQuery Version 1.11.0 -->
-<script src="/js/jquery-1.11.0.js"></script>
+<!-- jQuery  CDN -->
+<script src="https://cdn.jsdelivr.net/jquery/3.1.1/jquery.min.js"></script>
 
-<!-- Plugin JavaScript -->
-<script src="/js/jquery.easing.min.js"></script>
+<!-- light gallery and modules/plugins -->
+<script src="https://cdn.jsdelivr.net/g/lightgallery,lg-autoplay,lg-pager,lg-thumbnail,lg-video"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="/js/bootstrap.min.js"></script>
+<!-- Flex NavBar JavaScript -->
+<script src="js/scroll.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="js/landing-page.js"></script>
+<!-- Flex NavBar JavaScript -->
+<script src="js/navbar.js"></script>
 
 {{ if isset .Site.Params "googleAnalytics" }}
-
-<!-- Google Analytics -->
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new
-		Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	ga('create', '{{ .Site.Params.googleAnalytics }}', 'auto');
-	ga('send', 'pageview');
-</script>
-
+<script src="js/analytics.js"></script>
 {{ end }}
+
+<!-- Document Ready - Start -->
+<script src="js/docready.js"></script>

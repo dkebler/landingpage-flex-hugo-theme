@@ -1,0 +1,12 @@
+<section class="hero">
+	<div class="background-image" ></div>
+				{{ with .Site.Params.intro }}
+					{{ with .headline }}<h1>{{ . }}</h1>{{ end }}
+					{{ with .subheadline }}<h2>{{ . }}</h2>{{ end }}
+					{{ with .subsubheadline }}<h3>{{ . }}</h3>{{ end }}
+					{{ with .divider }}<hr class="divider">{{ end }}
+					{{ range .lines }}
+					<h4> {{ . }}</h4>
+					{{ end }}
+				{{ end }}
+</section>
