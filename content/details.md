@@ -5,21 +5,7 @@ title = "Details"
 link_text = "Details"
 weight = 4
 +++
-* Item 1
-* Item 2
-* Item 3
-* Item 1
-* Item 2
-* Item 3
-* Item 1
-* Item 2
-* Item 3
-* Item 1
-* Item 2
-* Item 3
-* Item 1
-* Item 2
-* Item 3
-* Item 1
-* Item 2
-* Item 3
+* Man Cave
+* Shop
+* Shed
+* Hot Tub

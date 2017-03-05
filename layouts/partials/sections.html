@@ -1,16 +1,9 @@
 <!-- Renders Section Based on Content -->
 {{ $parity := "odd" }} {{ range $i, $e := .Data.Pages }}
-<section id="{{ .File.BaseFileName }}" class="section-{{ if modBool $i 2  }}odd{{ else  }}even{{ end }} text-center">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2">
-			<br/>
-			<h2>{{ .Title }}</h2>
-			<br/>
+<section id="{{ .File.BaseFileName }}" class="section-{{ if modBool $i 2  }}odd{{ else  }}even{{ end }}">
+			<h1>{{ .Title }}</h1>
 			<div class="section-content">
 				{{ .Content }}
 			</div>
-			<br/>
-		</div>
-	</div>
 </section>
 {{ end }}

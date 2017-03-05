@@ -1,4 +1,4 @@
-baseurl = ""
+baseurl = "4005.kebler.net"
 languageCode = "en-us"
 title = "For Sale: 4005 Rock Way, Central Point, OR"
 canonifyUrls = "true"
@@ -7,44 +7,51 @@ publishDir = "dist"
 
 [params]
   custom_css = ["css/custom.css"]
-  # font = "Pridi"  # a valid google font name, default Roboto
+  font = "Baloo"  # a valid google font name, default Roboto
+
+#  For List of html colors
+# http://www.quackit.com/css/color/charts/css_color_names_chart.cfm
 
 [params.navbar]
-  text = "For Sale by Owner"  # default is to use the page title
-  font = "Baloo"
-  color = "green"
-  bg_color = "blue"
+  # text = "For Sale By Owner: 4005 Rock Way"  # default is to use the page title
+  text_size="1" # unit is em, 1em is default
+  # font = "Ranga"
+  color = "white"
+  bg_color = "seagreen"
 
-[params.intro]
-  # img = "intro.jpg"
+[params.hero]
+  img = "../images/4005front.jpg"  # default is images/hero.jpg, must provide the full path or url
   # img_medium = "intro-medium.jpg"  # min 1024
   # img_small  "intro-small.jpg"
-  # font = "Indie Flower"  # a valid google font name, default Roboto
-  color = "purple"
+  font = "Acme"  # a valid google font name, default Roboto for all hero text
+  # color = "green"
+  # font_headline = "Gloria Hallelujah"  # a valid google font name, defaults to intro font
   headline = "For Sale"
-  # font_headline = "Lato"  # a valid google font name, defaults to intro font
-  # color_headline = "red"
+  headline_color = "red"
+  # headline_size = "10"
   subheadline = "4005 Rock Way"
-  # color_subheadline = "red"
+  # subheadline_color = "pink"
+  # subheadline_size = "1"
   subsubheadline = "Central Point, Oregon"
-  # color_subsubheadline = "blue"
+  # subsubheadline_color = "brown"
+  # subsubheadline_size = "1"
   lines = ["A Rambler Style House","Close to Schools"]
-  # color_lines = "blue"
-  divider = false
+  # lines_color = "purple"
+  lines_size = "1.5"
+  divider = true
+  divider_color = "seagreen"
+  # divider_thickness = "3"
 
-  # for background image in static/imgs
-  # put intro.jpg and intro-phone.jpg for background images.
-  # intro-phone.jpg should be suitable for small devices
-
-# [params.sections]
-#     # font = "Lato"
-#     # font_headline = "Lato"
-#     [params.sections.odd]
-#     # color = ""
-#     # bg_color = ""
-#     [params.sections.even]
-#     # color = ""
-#     # bg_color = ""
+[params.sections]
+    font = "Lato"
+    headline_font = "Lato"
+    headline_size = "3"
+    [params.sections.odd]
+    # color = ""
+    # bg_color = ""
+    [params.sections.even]
+    # color = ""
+    # bg_color = ""
 
 
 [[params.social]]

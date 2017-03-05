@@ -1,6 +1,7 @@
 +++
 draft = false
-title = "Video"
+title = "Video Walk Through"
 weight = 3
+link_text = "Video"
 +++
-video player here shortcode
+{{% youtube ZhF0fkGRgSo %}}

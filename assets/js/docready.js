@@ -9,4 +9,9 @@ $(document).ready(function () {
     counter: true,
     // videojs: true
   });
+  hero() // size the hero section initially
+    // Resize event will run hero function.
+  $(window).resize(function () {
+    hero();
+  });
 });

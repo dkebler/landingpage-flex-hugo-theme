@@ -9,20 +9,27 @@
 }
 
 html{
-	font: normal 16px sans-serif;
-	color: #555;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1em;
+	color: black;
 }
 
 ul, nav{
 	list-style: none;
 }
 
+ul.grid{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
 a{
 	text-decoration: none;
 	color: inherit;
 	cursor: pointer;
-
-	opacity: 0.9;
+	opacity: 0.7;
 }
 
 a:hover{
@@ -38,199 +45,120 @@ a.btn{
 	text-align: center;
 }
 
-hr{
-	width: 150px;
-	height: 2px;
-	background-color: #2196F3;
-	border: 0;
-	margin-bottom: 80px;
+hr {
+  margin: 4px auto 4px auto;
+  height:0px;
+  width:50%;
+	border-style: solid;
+	border-width : 2px;
+	border-top-color: white;
+	border-bottom-color: rgba(0,0,0,0.2);
 }
 
-.divider {
-		width: 400px;
-		border-top: 1px solid #f8f8f8;
-		border-bottom: 1px solid rgba(0,0,0,0.2);
-}
+/*----------------
+ 	Common Section Styling
+----------------*/
 
 section{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
-	padding: 125px 100px;
+	padding: 20px 50px;
 }
 
-@media (max-width: 1000px){
-
-	section{
-		padding: 100px 50px;
-	}
-
+.section-even {
+	color: white;
+	background-color: silver;
 }
 
-@media (max-width: 600px){
-
-	section{
-		padding: 80px 30px;
-	}
-
-}
-
-section h3.title{
-	color: #414a4f;
-	text-transform: capitalize;
-	font: bold 32px 'Open Sans', sans-serif;
-	margin-bottom: 35px;
-	text-align: center;
+section h1{
+ font-size: 1.25em;
 }
 
 section p{
-	max-width: 800px;
-	text-align: center;
-	margin-bottom: 35px;
-	padding: 0 20px;
-	line-height: 2;
 }
 
-ul.grid{
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-}
+@media (min-width: 600px){
 
-
-/*-------------
- 	Header
--------------
-
-header{
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 10;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	color: #fff;
-	padding: 35px 100px 0;
-}
-
-header h2{
-	font-family: 'Quicksand', sans-serif;
-}
-
-header nav{
-	display: flex;
-}
-
-header nav li{
-	margin: 0 15px;
-}
-
-header nav li:first-child{
-	margin-left: 0;
-}
-
-header nav li:last-child{
-	margin-right: 0;
-}
-
-
-
-@media (max-width: 1000px){
-	header{
-		padding: 20px 50px;
-	}
-}
-
-
-@media (max-width: 700px){
-	header{
-		flex-direction: column;
+	section{
+		padding: 60px 60px;
 	}
 
-	header h2{
-		margin-bottom: 15px;
+	section h1{
+	 font-size: 2em;
 	}
+
 }
 
-*/
+@media (min-width: 1000px){
+
+	section{
+		padding: 80px 125px;
+	}
+
+	section h1{
+	 font-size: 2.5em;
+	}
+
+}
+
+
+
+
 
 /*----------------
  	Hero Section
 ----------------*/
-
-.hero{
-	 /*position: relative;*/
-	justify-content: center;
-	min-height: 100vh;
-	color: #fff;
-	text-align: center;
-	padding-top: 10%; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-	padding-bottom: 10%;
-	text-align: center;
-	background-size: contain;
+#hero{
+  background-image: url("../images/hero.jpg");
+  background-size:cover;
+	background-position: center;
+	display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero .background-image{
-	background-image: url("../images/intro.jpg") no-repeat center center;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	background-color: #2196F3;
-	z-index: -1;
+#hero .text {
+  text-align:center;
+  width:auto;
+  color:white;
+	font-weight: bold;
+	font-size: 1em;
 }
 
-.hero .background-image:after{
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background-color: #414a4f;
-	opacity: 0.75;
+/* #hero h1, #hero h2, #hero h3, #hero h4, #hero p { color:white; }*/
+
+#hero h1{
+	font-size:  5em;
 }
 
-.hero h1{
-	font: bold 60px 'Open Sans', sans-serif;
-	margin-bottom: 15px;
+#hero h2{
+	font-size:  3em;
 }
 
-.hero h3{
-	font: normal 28px 'Open Sans', sans-serif;
-	margin-bottom: 40px;
+#hero h3{
+	font-size:  2em;
 }
 
-.hero a.btn{
+#hero a.btn{
 	padding: 20px 46px;
 }
 
 @media (max-width: 800px){
 
-	.hero{
-		min-height: 600px;
-	}
-
-	.hero h1{
+	#hero h1{
 		font-size: 48px;
 	}
 
-	.hero h3{
+	#hero h3{
 		font-size: 24px;
 	}
 
-	.hero a.btn{
+	#hero a.btn{
 		padding: 15px 40px;
 	}
 
 }
-
 
 
 /*--------------------

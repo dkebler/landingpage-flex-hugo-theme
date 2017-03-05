@@ -1,7 +1,7 @@
 <!-- Configurable Styles partial to appear in head -->
  <style>
 {{ with .Site.Params.font }}
-  body,h1,h2,h3,h4,h5,h6 { font-family:{{ . }},Helvetica,Arial,sans-serif; }
+  html { font-family:{{ . }},Helvetica,Arial,sans-serif; }
  {{ end }}
 
  {{ with .Site.Params }}
@@ -9,18 +9,86 @@
  {{ with .navbar }}
 
  {{ with .font }}
- .navbar { font-family:{{ . }},Helvetica,Arial,sans-serif; }
+ #nav-logo, nav { font-family:{{ . }},Helvetica,Arial,sans-serif; }
  {{ end }}
 
  {{ with .bg_color }}
- .navbar { background-color: {{ . }};  }
+ .nav-link:hover {color: {{ . }}; }
+ #nav-background, #nav-menu-button { background-color: {{ . }};  }
+ {{ end }}
+
+ {{ with .text_size }}
+ #nav-logo { font-size: {{ . }}em; }
  {{ end }}
 
  {{ with .color }}
- .navbar-brand div a, .navbar-nav > li > a { color: {{ . }};  }
+  #nav-logo, .nav-link, #nav-menu-button { color: {{ . }};  }
+  .nav-link:hover { background-color: {{ . }}; }
  {{ end }}
 
  {{ end }}  /* end navbar */
+
+ {{ with .hero }}
+
+  {{ with .img }}
+  #hero {background-image: url("{{ . }}");}
+  {{ end }}
+
+  {{ with .font }}
+  #hero .text { font-family:{{ . }},Helvetica,Arial,sans-serif;}
+  {{ end }}
+
+  {{ with .color }}
+  #hero .text { color: {{ . }}; }
+  {{ end }}
+
+  {{ with .font_headline }}
+  #hero h1, #hero h2, #hero h3 { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
+  {{ end }}
+
+  {{ with .headline_color }}
+  #hero h1 { color: {{ . }}; }
+  {{ end }}
+
+  {{ with .headline_size }}
+  #hero h1 { font-size: {{ . }}em; }
+  {{ end }}
+
+  {{ with .subheadline_color }}
+  #hero h2 { color: {{ . }}; }
+  {{ end }}
+
+  {{ with .subheadline_size }}
+  #hero h2 { font-size: {{ . }}em; }
+  {{ end }}
+
+  {{ with .subsubheadline_color }}
+  #hero h3 { color: {{ . }}; }
+  {{ end }}
+
+  {{ with .subsubheadline_size }}
+  #hero h3 { font-size: {{ . }}em; }
+  {{ end }}
+
+  {{ with .lines_color }}
+  #hero h4 { color: {{ . }}; }
+  {{ end }}
+
+  {{ with .lines_size }}
+  #hero h4 { font-size: {{ . }}em; }
+  {{ end }}
+
+  {{ with .divider_thickness }}
+  hr { border-width: {{ . }}px; }
+  {{ end }}
+
+  {{ with .divider_color }}
+  hr { border-top-color: {{ . }}; }
+  {{ end }}
+
+  {{ end }}  /* end hero */
+
+  
 
  {{ end }}
 
