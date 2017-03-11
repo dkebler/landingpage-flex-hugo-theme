@@ -9,21 +9,21 @@
  {{ with .navbar }}
 
  {{ with .font }}
- #nav-logo, nav { font-family:{{ . }},Helvetica,Arial,sans-serif; }
+ .nav-bar__logo, nav-bar__menu { font-family:{{ . }},Helvetica,Arial,sans-serif; }
  {{ end }}
 
  {{ with .bg_color }}
- .nav-link:hover {color: {{ . }}; }
- #nav-background, #nav-menu-button { background-color: {{ . }};  }
+ .nav-bar__link:hover {color: {{ . }}; }
+ .nav-bar, .nav-bar__menu-button { background-color: {{ . }};  }
  {{ end }}
 
  {{ with .text_size }}
- #nav-logo { font-size: {{ . }}em; }
+ #nav-bar__logo { font-size: {{ . }}em; }
  {{ end }}
 
  {{ with .color }}
-  #nav-logo, .nav-link, #nav-menu-button { color: {{ . }};  }
-  .nav-link:hover { background-color: {{ . }}; }
+  .nav-bar__logo, .nav-bar__link, .nav-bar__menu-button { color: {{ . }};  }
+  .nav-bar__link:hover { background-color: {{ . }}; }
  {{ end }}
 
  {{ end }}  /* end navbar */
@@ -42,7 +42,7 @@
   #hero .text { color: {{ . }}; }
   {{ end }}
 
-  {{ with .font_headline }}
+  {{ with .headlines_font }}
   #hero h1, #hero h2, #hero h3 { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
   {{ end }}
 
@@ -88,7 +88,26 @@
 
   {{ end }}  /* end hero */
 
-  
+
+  {{ with .sections }}
+
+    {{ with .font }}
+    .section, .section h1, .section h2, .section h3, .section p { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
+    {{ end }}
+
+    {{ with .font_headline }}
+    .section h1, .section h2, .section h3, { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
+    {{ end }}
+
+    {{ with .odd }}
+    .section-odd {
+      color: {{ .color }}; }
+      background-color: {{ .bg_color }}; }
+    {{ end }}
+
+  {{ end }}  /* end sections */
+
+
 
  {{ end }}
 

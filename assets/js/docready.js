@@ -1,6 +1,8 @@
 // requires jquery
 $(document).ready(function () {
-  $("#media").lightGallery({
+  // Intialize all the media i.e. photos with "media" id
+  // TODO use Hugo params to initialize multiple galleries/albums
+  $("#4005").lightGallery({
     thumbnail: true,
     thumbWidth: 80,
     controls: true,
@@ -9,9 +11,29 @@ $(document).ready(function () {
     counter: true,
     // videojs: true
   });
-  hero() // size the hero section initially
-    // Resize event will run hero function.
-  $(window).resize(function () {
-    hero();
+
+  // initialize hero size
+  heroResize();
+  // iframeResize();
+  // jQuery('iframe').fitToParent(); // for all iframes
+
+  $('section').flowtype({
+    // maximum: 1000,
+    minFont: 12,
+    maxFont: 25,
+    fontRatio: 20
   });
+
+  $('#hero').flowtype({
+    maxFont: 60,
+    fontRatio: 15
+  });
+
+  // resize elements on change
+  $(window).resize(function () {
+    heroResize();
+    // iframeResize();
+    // jQuery('iframe').fitToParent();
+  });
+
 });

@@ -1,15 +1,16 @@
 <!-- Navigation -->
-  <div id="nav-background">
-    <div id="nav-container">
-      <header id="nav-header">
-        <a href="#hero" id="nav-logo">{{ .Site.Params.navbar.text | default .Site.Title }}</a>
-        <div id="nav-menu-button"> <i class="fa fa-bars"></i></div>
-      </header>
-      <nav>
-        <ul class="nav-ul hide-ul">
+  <div id="nav-bar" class="nav-bar">
+    <!-- <div class="nav-bar__container"> -->
+      <div class="nav-bar__header">
+        <a href="#hero" class="nav-bar__logo">{{ .Site.Params.navbar.text | default .Site.Title }}</a>
+        <div class="nav-bar__menu-button"> <i class="fa fa-bars"></i></div>
+      </div>
+      <!-- <nav class="nav-bar__menu"> -->
+        <ul class="nav-bar__menu display-menu">
           {{ range .Data.Pages }}
+          {{ if ne .File.BaseFileName "footer"}}
           <li>
-              <a class="nav-link" href="#{{ .File.BaseFileName }}">
+              <a class="nav-bar__link" href="#{{ .File.BaseFileName }}">
                   {{ if isset .Params "link_text" }}
                       {{ index .Params "link_text" }}
                   {{ else  }}
@@ -18,7 +19,8 @@
                 </a>
           </li>
           {{ end }}
+          {{ end }}
         </ul>
-      </nav>
-    </div>
+      <!-- </nav> -->
+    <!-- </div> -->
   </div>

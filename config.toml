@@ -1,4 +1,4 @@
-baseurl = "4005.kebler.net"
+baseurl = ""
 languageCode = "en-us"
 title = "For Sale: 4005 Rock Way, Central Point, OR"
 canonifyUrls = "true"
@@ -7,13 +7,14 @@ publishDir = "dist"
 
 [params]
   custom_css = ["css/custom.css"]
-  font = "Baloo"  # a valid google font name, default Roboto
+  font = "Lato"  # a valid google font name, default Roboto
 
 #  For List of html colors
 # http://www.quackit.com/css/color/charts/css_color_names_chart.cfm
 
 [params.navbar]
   # text = "For Sale By Owner: 4005 Rock Way"  # default is to use the page title
+  # text_small = ""
   text_size="1" # unit is em, 1em is default
   # font = "Ranga"
   color = "white"
@@ -25,7 +26,8 @@ publishDir = "dist"
   # img_small  "intro-small.jpg"
   font = "Acme"  # a valid google font name, default Roboto for all hero text
   # color = "green"
-  # font_headline = "Gloria Hallelujah"  # a valid google font name, defaults to intro font
+  # background-color = "red"
+  # headlines_font = "Gloria Hallelujah"  # a valid google font name, defaults to intro font
   headline = "For Sale"
   headline_color = "red"
   # headline_size = "10"
@@ -37,13 +39,15 @@ publishDir = "dist"
   # subsubheadline_size = "1"
   lines = ["A Rambler Style House","Close to Schools"]
   # lines_color = "purple"
-  lines_size = "1.5"
+  # lines_size = "1.5"
   divider = true
   divider_color = "seagreen"
   # divider_thickness = "3"
 
 [params.sections]
     font = "Lato"
+    # maxFont =
+    # fontRatio =
     headline_font = "Lato"
     headline_size = "3"
     [params.sections.odd]
@@ -51,7 +55,7 @@ publishDir = "dist"
     # bg_color = ""
     [params.sections.even]
     # color = ""
-    # bg_color = ""
+    bg_color = "seagreen"
 
 
 [[params.social]]

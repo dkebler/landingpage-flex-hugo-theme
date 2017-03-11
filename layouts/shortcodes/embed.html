@@ -1,0 +1,19 @@
+<!-- parameter map url -->
+{{ if .IsNamedParams }}
+<div class="box box--{{ .Get "type" }}">
+      {{ with .Get "title" }}
+      <div class="box__title">{{ . }}</div>
+      {{ end }} {{ with .Get "caption"}}
+      <div class="box__caption">{{ . }}</div>
+      {{ end }}
+    <div class="box__embed box__embed--{{ .Get "type" }}">
+        {{ .Inner }}
+    </div>
+ </div>
+ {{ else }}
+<div class="box box--{{ .Get 0 }}">
+  <div class="box__embed box__embed--{{ .Get 0 }}">
+    {{ .Inner }}
+  </div>
+</div>
+    {{ end }}
