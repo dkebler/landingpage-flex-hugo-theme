@@ -4,4 +4,4 @@ title = "Photo Gallery"
 link_text = "Photos"
 weight = 2
 +++
-{{% gallery %}}
+{{% 4005-gallery %}}

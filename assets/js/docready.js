@@ -7,7 +7,7 @@ $(document).ready(function () {
     thumbWidth: 80,
     controls: true,
     loop: false,
-    download: true,
+    download: false,
     counter: true,
     // videojs: true
   });
@@ -20,14 +20,9 @@ $(document).ready(function () {
     $('.nav-bar').css("display", "flex")
   });
 
-  lg.on('onBeforeOpen.lg', function (event) {
-    $('.nav-bar').css("display", "none")
-  });
-
   // initialize hero size
   heroResize();
-  // iframeResize();
-  // jQuery('iframe').fitToParent(); // for all iframes
+  iframeResize();
 
   $('section').flowtype({
     // maximum: 1000,
@@ -42,10 +37,9 @@ $(document).ready(function () {
   });
 
   // resize elements on change
-  $(window).resize(function () {
+  $(window).smartresize(function () {
     heroResize();
-    // iframeResize();
-    // jQuery('iframe').fitToParent();
+    iframeResize();
   });
 
 });

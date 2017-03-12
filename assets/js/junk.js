@@ -1,3 +1,13 @@
+//
+// // get all original iframe dimensions
+// (function iframeInit() {
+//   $('iframe').each(function (i) {
+//     console.log(i, $(this).attr('height'), $(this).attr('width'));
+//     this.aspect = $(this).attr('height') / $(this).attr('width')
+//     console.log('aspect iframe', i, this.aspect)
+//   })
+// }());
+
 // videos - preload
 (function videoInit() {
 

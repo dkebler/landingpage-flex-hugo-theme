@@ -87,6 +87,11 @@ padding-left:1em
     justify-content: center;
 }
 
+.box--column {
+    flex-direction: column;
+    align-items: center;
+}
+
 .box--headline {}
 
 .box--text {}
@@ -96,8 +101,12 @@ padding-left:1em
 }
 
 .box__embed {
+  /*height: 100vh;*/
+  width: 100%;
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
   align-items: center;
 }
 

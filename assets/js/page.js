@@ -1,8 +1,8 @@
 // hero resizer
 function heroResize() {
-  jQuery('#hero').css({
-    width: jQuery(window).width(),
-    height: jQuery(window).height()
+  $('#hero').css({
+    width: $(window).width(),
+    height: $(window).height()
   });
 }
 
@@ -22,7 +22,7 @@ $('a[href*="#"]:not([href="#"])').click(function () {
   }
 });
 
-// navbar - preload
+// navbar mobile toggle - preload
 (function navbarInit() {
 
   function toggleMobileMenu() {
@@ -33,24 +33,47 @@ $('a[href*="#"]:not([href="#"])').click(function () {
 
 }());
 
-// function iframeResize(percent = 1) {
-//   console.log('window width', percent, $(window).width())
-//   console.log('section_content', percent, $('.section__content').width())
-//   console.log('box embed width', percent, $('.box__embed').width())
-//   $('iframe').each(function (i) {
-//     console.log('aspect', this.aspect)
-//     $(this).attr('height', this.aspect * $('.box__embed').width())
-//     $(this).attr('width', $('.box__embed').width())
-//   })
-//   console.log('new width and height', $('iframe')[0].width, $('iframe')[0].height)
-//   console.log('new width and height', $('iframe')[1].width, $('iframe')[1].height)
-// }
-//
-// // get all original iframe dimensions
-// (function iframeInit() {
-//   $('iframe').each(function (i) {
-//     console.log(i, $(this).attr('height'), $(this).attr('width'));
-//     this.aspect = $(this).attr('height') / $(this).attr('width')
-//     console.log('aspect iframe', i, this.aspect)
-//   })
-// }());
+function iframeResize(maxWidth = 450) {
+  var windowWidth = $(window).width()
+  var width = (windowWidth > maxWidth) ? maxWidth : windowWidth - 20
+    // alert(`before ww width ${windowWidth} ${width}`)
+  jQuery('iframe').fitToParent({
+    heightOffset: 0, // (int) Put some space around the element
+    // widthOffset: 5, // (int) Put some space around the element
+    // boxHeight: , // (int) Will look for .size-parent, or fallback to parent size
+    boxWidth: width, // (int) Will look for .size-parent, or fallback to parent size
+    callback: function (newWidth, newHeight) {
+      // alert(`after w h ${newWidth} ${newHeight}`)
+      // Fires after fitting is complete
+    }
+  })
+}
+
+// debouncing function for window resize from John Hann
+// http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
+(function ($, sr) {
+  var debounce = function (func, threshold, execAsap) {
+      var timeout;
+
+      return function debounced() {
+        var obj = this,
+          args = arguments;
+
+        function delayed() {
+          if (!execAsap)
+            func.apply(obj, args);
+          timeout = null;
+        };
+
+        if (timeout)
+          clearTimeout(timeout);
+        else if (execAsap)
+          func.apply(obj, args);
+
+        timeout = setTimeout(delayed, threshold || 100);
+      };
+    }
+    // smartresize
+  jQuery.fn[sr] = function (fn) { return fn ? this.bind('resize', debounce(fn)) : this.trigger(sr); };
+
+})(jQuery, 'smartresize');
