@@ -6,19 +6,17 @@ staticDir ="assets"
 publishDir = "dist"
 
 [params]
-  custom_css = ["css/custom.css"]
-  font = "Lato"  # a valid google font name, default Roboto
-
+custom_css = ["css/custom.css"]
+# font = "Lato"  # a valid google font name, default Roboto
 #  For List of html colors
 # http://www.quackit.com/css/color/charts/css_color_names_chart.cfm
 
 [params.navbar]
-  # text = "For Sale By Owner: 4005 Rock Way"  # default is to use the page title
-  # text_small = ""
-  text_size="1" # unit is em, 1em is default
+  #logo_text = "For Sale By Owner: 4005 Rock Way"  # default is to use the page title
+  # logo_text_size="1" # unit is em, 2em is default for small
   # font = "Ranga"
-  color = "white"
-  bg_color = "seagreen"
+  # color = "white"
+  # bg_color = "seagreen"
 
 [params.hero]
   img = "../images/4005front.jpg"  # default is images/hero.jpg, must provide the full path or url
@@ -55,7 +53,7 @@ publishDir = "dist"
     # bg_color = ""
     [params.sections.even]
     # color = ""
-    bg_color = "seagreen"
+    # bg_color = "seagreen"
 
 
 [[params.social]]

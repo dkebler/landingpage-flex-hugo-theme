@@ -36,6 +36,7 @@ body{
     align-items: center;
 }
 
+#footer { min-height: 300px}
 
 
  /* Typography */
@@ -77,6 +78,7 @@ a {
     color: inherit;
     cursor: pointer;
     opacity: 0.9;
+    outline: 0;
 }
 
 a:hover {
@@ -84,17 +86,19 @@ a:hover {
 }
 
 
-.btn>a {
+.btn {
     color: white;
-    background-color: darkslategrey;
+    background-color: black;
     text-transform: uppercase;
     padding: .5em;
     border-radius: 5px;
-    border: 3px solid #566963;
+    border: 3px solid grey;
     cursor: pointer;
     font-weight: bold;
     text-shadow: 0 1px 0 grey;
 }
+
+
 
 img {
     max-width: 100%;

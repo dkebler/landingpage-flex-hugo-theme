@@ -2,7 +2,7 @@
 $(document).ready(function () {
   // Intialize all the media i.e. photos with "media" id
   // TODO use Hugo params to initialize multiple galleries/albums
-  $("#4005").lightGallery({
+  var lg = $("#4005").lightGallery({
     thumbnail: true,
     thumbWidth: 80,
     controls: true,
@@ -10,6 +10,18 @@ $(document).ready(function () {
     download: true,
     counter: true,
     // videojs: true
+  });
+
+  lg.on('onBeforeOpen.lg', function (event) {
+    $('.nav-bar').css("display", "none")
+  });
+
+  lg.on('onCloseAfter.lg', function (event) {
+    $('.nav-bar').css("display", "flex")
+  });
+
+  lg.on('onBeforeOpen.lg', function (event) {
+    $('.nav-bar').css("display", "none")
   });
 
   // initialize hero size

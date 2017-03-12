@@ -1,26 +1,24 @@
 <!-- Navigation -->
-  <div id="nav-bar" class="nav-bar">
-    <!-- <div class="nav-bar__container"> -->
-      <div class="nav-bar__header">
-        <a href="#hero" class="nav-bar__logo">{{ .Site.Params.navbar.text | default .Site.Title }}</a>
-        <div class="nav-bar__menu-button"> <i class="fa fa-bars"></i></div>
-      </div>
-      <!-- <nav class="nav-bar__menu"> -->
-        <ul class="nav-bar__menu display-menu">
-          {{ range .Data.Pages }}
-          {{ if ne .File.BaseFileName "footer"}}
-          <li>
-              <a class="nav-bar__link" href="#{{ .File.BaseFileName }}">
+<div id="nav-bar" class="nav-bar">
+    <!-- <div class="nav-bar__container">  -->
+        <div class="nav-bar__header">
+            <a href="#hero" class="nav-bar__logo">{{ if .Site.Params.navbar.logo_text }} {{ .Site.Params.navbar.logo_text }} {{ else }} {{ .Site.Title | default "Add a site title" }} {{ end }}</a>
+            <div class="nav-bar__menu-button"> <i class="fa fa-bars"></i></div>
+        </div>
+        <!-- <nav class="nav-bar__menu-off"> --> 
+            <ul class="nav-bar__menu hide-menu">
+                {{ range .Data.Pages }} {{ if ne .File.BaseFileName "footer"}}
+                <li class="nav-bar__menu-item">
+                    <a href="#{{ .File.BaseFileName }}">
                   {{ if isset .Params "link_text" }}
                       {{ index .Params "link_text" }}
                   {{ else  }}
                       {{ index .Title }}
                   {{ end }}
                 </a>
-          </li>
-          {{ end }}
-          {{ end }}
-        </ul>
-      <!-- </nav> -->
-    <!-- </div> -->
-  </div>
+                </li>
+                {{ end }} {{ end }}
+             </ul>
+        <!-- </nav> -->
+      <!-- </div> -->
+</div>

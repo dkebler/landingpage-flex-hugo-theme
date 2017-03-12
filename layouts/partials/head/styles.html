@@ -9,21 +9,21 @@
  {{ with .navbar }}
 
  {{ with .font }}
- .nav-bar__logo, nav-bar__menu { font-family:{{ . }},Helvetica,Arial,sans-serif; }
+ .nav-bar__logo, .nav-bar__menu { font-family:{{ . }},Helvetica,Arial,sans-serif; }
  {{ end }}
 
  {{ with .bg_color }}
- .nav-bar__link:hover {color: {{ . }}; }
+ .nav-bar__menu-item:hover {color: {{ . }}; }
  .nav-bar, .nav-bar__menu-button { background-color: {{ . }};  }
  {{ end }}
 
  {{ with .text_size }}
- #nav-bar__logo { font-size: {{ . }}em; }
+ .nav-bar__logo { font-size: {{ . }}em; }
  {{ end }}
 
  {{ with .color }}
-  .nav-bar__logo, .nav-bar__link, .nav-bar__menu-button { color: {{ . }};  }
-  .nav-bar__link:hover { background-color: {{ . }}; }
+  .nav-bar__logo, .nav-bar__menu, .nav-bar__menu-button { color: {{ . }};  }
+  .nav-bar__menu-item:hover { background-color: {{ . }}; }
  {{ end }}
 
  {{ end }}  /* end navbar */
