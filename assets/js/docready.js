@@ -37,7 +37,7 @@ $(document).ready(function () {
   });
 
   // resize elements on change
-  $(window).smartresize(function () {
+  $(window).resize(function () {
     heroResize();
     iframeResize();
   });

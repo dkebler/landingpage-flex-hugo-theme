@@ -1,156 +1,171 @@
- /* resets */
-*,
-*:before,
-*:after {
-box-sizing: border-box;
-margin: 0;
-padding: 0;
-border: 0;
-}
+/* resets */
 
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 
 /* regions */
-
-body{
+body {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.4rem; /* 14px default before jquery scalling */
   color: black;
   background-color: white;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.4rem;
+  flex-direction: column;
+  /* 14px default before jquery scalling */
 }
-
 
 .section {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   padding-top: 1em;
   padding-bottom: 1em;
+  align-items: center;
+  flex-direction: column;
 }
 
 /* mobile first column */
 .section__container {
-    width:95%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  width: 95%;
+  align-items: center;
+  flex-direction: column;
 }
 
-#footer { min-height: 300px}
-
-
- /* Typography */
-
- body {
-     font-size: 12px;
- }
-
-h1, h2, h3, h4, h5, h6 {
-    /* display: block; */
-    font-weight: bold;
-    line-height: 1.45;
-    text-align: center;
+#footer {
+  min-height: 300px;
 }
 
-h1 {font-size: 2em;}
-h2 {font-size: 1.5em;}
-h3 {font-size: 1.17em;}
-h4 {font-size: 1em;}
-h5 {font-size: .83em;}
-h6 {font-size: .67em;}
-
-p {font-size: 1em;
-    text-align: left;
-    line-height: 1.2;
+/* Typography */
+body {
+  font-size: 12px;
 }
 
-li { font-size: 1em}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* display: block; */
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.45;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.83em;
+}
+
+h6 {
+  font-size: 0.67em;
+}
+
+p {
+  text-align: left;
+  font-size: 1em;
+  line-height: 1.2;
+}
+
+li {
+  font-size: 1em;
+}
 
 /* elements */
-
-ul, nav {
-    list-style: none;
+nav,
+ul {
+  list-style: none;
 }
 
-
 a {
-   text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    opacity: 0.9;
-    outline: 0;
+  color: inherit;
+  opacity: 0.9;
+  outline: 0;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {
-    opacity: 1;
+  opacity: 1;
 }
-
 
 .btn {
-    color: white;
-    background-color: black;
-    text-transform: uppercase;
-    padding: .5em;
-    border-radius: 5px;
-    border: 3px solid grey;
-    cursor: pointer;
-    font-weight: bold;
-    text-shadow: 0 1px 0 grey;
+  padding: 0.5em;
+  color: white;
+  border: 3px solid grey;
+  border-radius: 5px;
+  background-color: black;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 grey;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-
-
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 figure {
-    display: block;
-    padding: 1em;
+  display: block;
+  padding: 1em;
 }
 
 figcaption {
-    display: block;
-    text-align: center;
-    margin: 1em 0;
-    font-style: italic;
-    orphans: 2;
+  display: block;
+  margin: 1em 0;
+  text-align: center;
+  font-style: italic;
+  orphans: 2;
 }
 
-/* html5 video tag, override any iframe width */
-/*video, iframe {
-    width: 100%!important;
-    height: auto!important;/
-}*/
-
+/* divider */
 hr {
-    margin: 4px auto 4px auto;
-    height: 0;
-    width: 50%;
-    border-style: solid;
-    border-width: 2px;
-    border-top-color: white;
-    border-bottom-color: rgba(0, 0, 0, 0.2);
+  width: 50%;
+  height: 0;
+  margin: 4px auto;
+  border-top-color: white;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  border-width: 2px;
+  border-style: solid;
 }
 
 .flex-col-center {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
 .flex-col-left {
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
+  flex-direction: column;
 }
 
 .flex-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: center;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }

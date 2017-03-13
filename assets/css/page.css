@@ -5,96 +5,92 @@
 }
 
 .section__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section__content ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width:80%;
-  padding-top: .3em;
+  max-width: 80%;
+  padding-top: 0.3em;
   padding-bottom: 1em;
 }
 
-
 .section__content li {
-  padding-bottom: .7em;
+  padding-bottom: 0.7em;
 }
 
-.section__content  li::before {
-font-family: FontAwesome;
-content: "\f18e";
-padding-right:.5em;
-padding-left:1em
+.section__content li::before {
+  font-family: FontAwesome;
+  content: "\f18e";
+  padding-right: 0.5em;
+  padding-left: 1em;
 }
 
 .section__content ul li {
-    text-indent: -3rem;
+  text-indent: -3rem;
 }
 
 .section--even {
-    color: white;
-    background-color: black;
+  color: white;
+  background-color: black;
 }
 
 .section--even .btn {
-    color: black;
-    background-color: white;
-    text-transform: uppercase;
+  color: black;
+  background-color: white;
+  text-transform: uppercase;
 }
 
 .section--footer {
-    color: white;
-    background-color: darkgrey;
-    min-height: 4000px;
+  color: white;
+  background-color: darkgrey;
+  min-height: 4000px;
 }
 
-
-
-/*----------------
+/* ----------------
  	Hero Section
-----------------*/
-
+---------------- */
 #hero {
-    background-image: url("../images/hero.jpg");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-image: url("../images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #hero .text {
-    text-align: center;
-    color: white;
+  text-align: center;
+  color: white;
 }
 
-
-/*----------------
+/* ----------------
  	Components/Shortcodes Styling
-----------------*/
+---------------- */
 
-/* box creates a flexbox wrapper*/
-
+/* box creates a flexbox wrapper */
 .box {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
 }
 
 .box--column {
-    flex-direction: column;
-    align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.box--headline {}
+.box--headline {
+}
 
-.box--text {}
+.box--text {
+}
 
 .box--btn {
   padding: 1rem;

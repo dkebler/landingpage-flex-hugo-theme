@@ -8,11 +8,13 @@ publishDir = "dist"
 [params]
 custom_css = ["css/custom.css"]
 # font = "Lato"  # a valid google font name, default Roboto
+# list_item_icon
 #  For List of html colors
 # http://www.quackit.com/css/color/charts/css_color_names_chart.cfm
 
 [params.navbar]
-  #logo_text = "For Sale By Owner: 4005 Rock Way"  # default is to use the page title
+  logo_text = "For Sale By Owner: 4005 Rock Way"  # default is to use the page title
+  logo_text_short = "For Sale By Owner"
   # logo_text_size="1" # unit is em, 2em is default for small
   # font = "Ranga"
   # color = "white"
@@ -23,8 +25,11 @@ custom_css = ["css/custom.css"]
   # img_medium = "intro-medium.jpg"  # min 1024
   # img_small  "intro-small.jpg"
   font = "Acme"  # a valid google font name, default Roboto for all hero text
+  color = "honeydew"
   # color = "green"
-  # background-color = "red"
+  # bg_color = "red"
+  text_outline = "black"
+  text_shadow = "black"
   # headlines_font = "Gloria Hallelujah"  # a valid google font name, defaults to intro font
   headline = "For Sale"
   headline_color = "red"
@@ -32,7 +37,7 @@ custom_css = ["css/custom.css"]
   subheadline = "4005 Rock Way"
   # subheadline_color = "pink"
   # subheadline_size = "1"
-  subsubheadline = "Central Point, Oregon"
+  subsubheadline = "Central Point, OR"
   # subsubheadline_color = "brown"
   # subsubheadline_size = "1"
   lines = ["A Rambler Style House","Close to Schools"]
@@ -42,18 +47,25 @@ custom_css = ["css/custom.css"]
   divider_color = "seagreen"
   # divider_thickness = "3"
 
+
 [params.sections]
-    font = "Lato"
+    font = "Acme"
     # maxFont =
     # fontRatio =
+    # bullet_icon = '\f069'   # the font awesome hex number  "\nnnn"
     headline_font = "Lato"
-    headline_size = "3"
+    # headline_size = "3"
     [params.sections.odd]
-    # color = ""
-    # bg_color = ""
+      color = "#363636"
+      bg_color = "honeydew"
     [params.sections.even]
-    # color = ""
-    # bg_color = "seagreen"
+      color = "white"
+      bg_color = "darkolivegreen"
+    [params.sections.footer]
+    # color = "white"
+    # bg_color = "darkolivegreen"
+
+
 
 
 [[params.social]]

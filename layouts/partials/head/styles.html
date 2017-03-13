@@ -4,6 +4,8 @@
   html { font-family:{{ . }},Helvetica,Arial,sans-serif; }
  {{ end }}
 
+
+
  {{ with .Site.Params }}
 
  {{ with .navbar }}
@@ -26,6 +28,24 @@
   .nav-bar__menu-item:hover { background-color: {{ . }}; }
  {{ end }}
 
+{{ with .logo_text_short }}
+@media only screen and (max-width: 400px) {
+ .nav-bar__logo {
+   text-indent: -9999px;
+   line-height: 0; /* Collapse the original line */
+ }
+
+ .nav-bar__logo::after {
+   content: "{{ . }}";
+   text-indent: 0;
+   display: block;
+   line-height: initial; /* New content takes up original line height */
+ }
+ }
+ {{ end }}
+
+
+
  {{ end }}  /* end navbar */
 
  {{ with .hero }}
@@ -39,8 +59,39 @@
   {{ end }}
 
   {{ with .color }}
-  #hero .text { color: {{ . }}; }
+  #hero > .text { color: {{ . }}; }
   {{ end }}
+
+  {{ if and ( .text_outline ) ( .text_shadow ) }}
+  #hero > .text {
+    text-shadow:
+     -2px -2px 0 {{ .text_outline }},
+      2px -2px 0 {{ .text_outline }},
+     -2px 2px 0 {{ .text_outline }},
+      2px 2px 0 {{ .text_outline }},
+      -7px -3px 0 {{ .text_shadow }};
+   }
+   {{ else }}
+
+   {{ with .text_outline }}
+   #hero > .text {
+     text-shadow:
+      -2px -2px 0 {{ . }},
+       2px -2px 0 {{ . }},
+       -2px 2px 0 {{ . }},
+        2px 2px 0 {{ . }};
+    }
+   {{ end }}
+
+   {{ with .text_shadow }}
+   #hero > .text {
+     text-shadow:
+      -7px -3px 0 {{ . }}
+    }
+   {{ end }}
+
+   {{ end }}
+
 
   {{ with .headlines_font }}
   #hero h1, #hero h2, #hero h3 { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
@@ -95,14 +146,30 @@
     .section, .section h1, .section h2, .section h3, .section p { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
     {{ end }}
 
-    {{ with .font_headline }}
-    .section h1, .section h2, .section h3, { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
+    {{ with .headline_font }}
+    .section__headline h1 { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
+    {{ end }}
+
+    {{ with .bullet_icon }}
+    .section__content li::before {
+      content: '{{ . }}';
+      /*content: "\f069";*/
+    }
+
     {{ end }}
 
     {{ with .odd }}
-    .section-odd {
-      color: {{ .color }}; }
-      background-color: {{ .bg_color }}; }
+    .section--odd {
+      color: {{ .color }};
+      background-color: {{ .bg_color }};
+    }
+    {{ end }}
+
+    {{ with .even }}
+    .section--even {
+      color: {{ .color }};
+      background-color: {{ .bg_color }};
+    }
     {{ end }}
 
   {{ end }}  /* end sections */

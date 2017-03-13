@@ -37,22 +37,31 @@ jQuery.fn.fitToParent = function (options) {
     var parentWidth = settings.boxWidth - settings.widthOffset;
     var parentHeight = settings.boxHeight - settings.heightOffset;
 
+    console.log(`settings.boxWidth, parentWidth ${settings.boxWidth} ${parentWidth}`);
+
     // Maintain aspect ratio
     var aspect = $el.data('aspect');
     if (!aspect) {
       aspect = width / height;
       $el.data('aspect', aspect);
     }
-    var parentAspect = parentWidth / parentHeight;
+    //  var parentAspect = parentWidth / parentHeight;
+    // // Resize to fit box
+    // if (aspect > parentAspect) {
+    //   newWidth = parentWidth;
+    //   console.log(`aspect > width ${newWidth}`)
+    //   newHeight = (newWidth / aspect);
+    //
+    // } else {
+    //   newHeight = parentHeight;
+    //   newWidth = newHeight * aspect;
+    //   console.log(`aspect < width ${newWidth}`)
+    // }
 
-    // Resize to fit box
-    if (aspect > parentAspect) {
-      newWidth = parentWidth;
-      newHeight = (newWidth / aspect);
-    } else {
-      newHeight = parentHeight;
-      newWidth = newHeight * aspect;
-    }
+    newWidth = parentWidth;
+    newHeight = (newWidth / aspect);
+
+    console.log(`width before setting ${newWidth}`)
 
     // Set new size of element
     $el.width(newWidth);

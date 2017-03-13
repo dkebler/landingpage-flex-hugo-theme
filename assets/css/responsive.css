@@ -1,42 +1,34 @@
-/* mobile in base and page css*/
+/* mobile first in base and page css*/
 
 /* small tablets */
-@media only screen and (min-width: 40rem) {
-  .section__container {
-
-  }
+@media only screen and (min-width: 600px) {
 }
 
-@media only screen and (min-device-width: 40rem) and (max-device-width: 79rem) {
+@media only screen and (min-device-width: 600px) and (max-device-width: 799px) {
 }
-
 
 /* tablets */
 @media only screen and (min-width: 800px) {
-  .section__container {
-
-  }
 }
 
 @media only screen and (min-device-width: 800px) and (max-device-width: 1190px) {
 }
 
-
 /* desktop */
 
 @media only screen and (min-width: 1200px) {
-
-.section__container {
-      max-width: 1200px;
-    }
+  .section__container {
+    max-width: 1200px;
+  }
 }
-
 
 @media only screen and (min-device-width: 1200px) and (max-device-width: 1800px) {
-    /* Styles */
+  /* Styles */
 }
 
-
-/* large*/
-
-@media screen and (min-width: 1800px) {}
+/* large */
+@media screen and (min-width: 1800px) {
+  .section__container {
+    max-width: 1200px;
+  }
+}
