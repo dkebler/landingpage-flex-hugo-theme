@@ -6,25 +6,25 @@ staticDir ="assets"
 publishDir = "dist"
 
 [params]
-custom_css = ["css/custom.css"]
-# font = "Lato"  # a valid google font name, default Roboto
-# list_item_icon
-#  For List of html colors
-# http://www.quackit.com/css/color/charts/css_color_names_chart.cfm
+custom_css = ["css/custom.css"]  # can add other files in array and file in assets/css/
+font = "Acme"  # a valid google font name, default Roboto, sets for entire site, can be specifically overridden
 
 [params.navbar]
   logo_text = "For Sale By Owner: 4005 Rock Way"  # default is to use the page title
-  logo_text_short = "For Sale By Owner"
+  logo_text_short = "For Sale By Owner" # helps to fit on small screens without wrapping
   # logo_text_size="1" # unit is em, 2em is default for small
   # font = "Ranga"
-  # color = "white"
-  # bg_color = "seagreen"
+  #  For List of html colors see either
+  # http://www.quackit.com/css/color/charts/css_color_names_chart.cfm
+  # https://www.colorcodehex.com/html-color-names.html
+  color = "honeydew"
+  bg_color = "olivedrab"
 
 [params.hero]
   img = "../images/4005front.jpg"  # default is images/hero.jpg, must provide the full path or url
   # img_medium = "intro-medium.jpg"  # min 1024
   # img_small  "intro-small.jpg"
-  font = "Acme"  # a valid google font name, default Roboto for all hero text
+  # font = "Acme"  # a valid google font name, default Roboto for all hero text
   color = "honeydew"
   # color = "green"
   # bg_color = "red"
@@ -47,13 +47,10 @@ custom_css = ["css/custom.css"]
   divider_color = "seagreen"
   # divider_thickness = "3"
 
-
 [params.sections]
-    font = "Acme"
-    # maxFont =
-    # fontRatio =
-    # bullet_icon = '\f069'   # the font awesome hex number  "\nnnn"
-    headline_font = "Lato"
+    #font = "Acme"
+    # bullet_icon = "\uF069"   # the font awesome 4 digit unicode number, CAPS for letters, preface with \u
+    # headline_font = "Lato"
     # headline_size = "3"
     [params.sections.odd]
       color = "#363636"
@@ -63,10 +60,20 @@ custom_css = ["css/custom.css"]
       bg_color = "darkolivegreen"
     [params.sections.footer]
     # color = "white"
-    # bg_color = "darkolivegreen"
+    # bg_color = "olive"
 
-
-
+# these will overide the default which is even section button scheme comes from odd section scheme and vice versa
+# default hover is simply
+[params.buttons.even]
+  # color = "blue"
+  # bg_color = "red"
+  # hover_color ="white"
+  # hover_bg_color ="purple"
+[params.buttons.odd]
+  # color = "red"
+  # bg_color = "blue"
+  # hover_color ="purple"
+  # hover_bg_color ="white"
 
 [[params.social]]
     title = "email"

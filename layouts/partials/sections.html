@@ -1,6 +1,6 @@
 <!-- Renders Section Based on Content -->
 {{ $parity := "odd" }} {{ range $i, $e := .Data.Pages }}
-<section id="{{ .File.BaseFileName }}" class="section section--{{ .File.BaseFileName }} section--{{ if modBool $i 2  }}odd{{ else  }}even{{ end }}">
+<section id="{{ .File.BaseFileName }}" class="section section--{{ .File.BaseFileName }} {{ if ne .File.BaseFileName "footer" }} section--{{ if modBool $i 2  }}odd{{ else  }}even{{ end }} {{ end }}">
 	<div class="section__container">
 		<div class="section__headline section__headline--{{ .File.BaseFileName }}">
 			<h1>{{ .Title }}</h1>

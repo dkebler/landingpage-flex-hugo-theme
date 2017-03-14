@@ -60,6 +60,7 @@
 .nav-bar__menu-item > a {
   flex-grow: 1;
   text-align: center;
+  opacity: 1;
 }
 
 .nav-bar__menu-item:hover {

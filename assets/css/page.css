@@ -79,6 +79,7 @@
   flex-wrap: wrap;
   align-content: center;
   justify-content: center;
+  padding: 0.5em;
 }
 
 .box--column {
@@ -106,10 +107,18 @@
   align-items: center;
 }
 
+/*turn off default bullets*/
 .box--gallery {
-  /*justify-content: flex-start;*/
+  list-style: none;
 }
 
-.gallery__item {
-  padding: 3px;
+.box--gallery li,
+.box--gallery__item {
+  padding: 0.2em;
+}
+
+/*turn off fontawesome bullets*/
+.box--gallery li::before,
+.box--gallery__item li::before {
+  display: none;
 }

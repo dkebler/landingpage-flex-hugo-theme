@@ -1,10 +1,8 @@
 <!-- Configurable Styles partial to appear in head -->
  <style>
 {{ with .Site.Params.font }}
-  html { font-family:{{ . }},Helvetica,Arial,sans-serif; }
+  body { font-family:{{ . }},Helvetica,Arial,sans-serif; }
  {{ end }}
-
-
 
  {{ with .Site.Params }}
 
@@ -16,7 +14,7 @@
 
  {{ with .bg_color }}
  .nav-bar__menu-item:hover {color: {{ . }}; }
- .nav-bar, .nav-bar__menu-button { background-color: {{ . }};  }
+ .nav-bar, .section--footer { background-color: {{ . }};  }
  {{ end }}
 
  {{ with .text_size }}
@@ -24,7 +22,7 @@
  {{ end }}
 
  {{ with .color }}
-  .nav-bar__logo, .nav-bar__menu, .nav-bar__menu-button { color: {{ . }};  }
+  .nav-bar__logo, .nav-bar__menu, .nav-bar__menu-button, .section--footer { color: {{ . }};  }
   .nav-bar__menu-item:hover { background-color: {{ . }}; }
  {{ end }}
 
@@ -152,21 +150,28 @@
 
     {{ with .bullet_icon }}
     .section__content li::before {
-      content: '{{ . }}';
-      /*content: "\f069";*/
-    }
+      content: "{{ . }}";
+      }
 
     {{ end }}
 
     {{ with .odd }}
-    .section--odd {
+    .section--odd, .section--even .btn {
+      color: {{ .color }};
+      background-color: {{ .bg_color }};
+    }
+
+    {{ end }}
+
+    {{ with .even }}
+    .section--even, .section--odd .btn {
       color: {{ .color }};
       background-color: {{ .bg_color }};
     }
     {{ end }}
 
-    {{ with .even }}
-    .section--even {
+    {{ with .footer }}
+    .section--footer {
       color: {{ .color }};
       background-color: {{ .bg_color }};
     }
@@ -174,8 +179,34 @@
 
   {{ end }}  /* end sections */
 
+  {{ with .buttons }}
 
+  {{ with .odd }}
+  .section--odd .btn {
+    color: {{ .color }};
+    background-color: {{ .bg_color }};
+  }
 
- {{ end }}
+  .section--odd .btn:hover {
+    color: {{ .hover_color }};
+    background-color: {{ .hover_bg_color }};
+  }
+  {{ end }}
+
+  {{ with .even }}
+  .section--even .btn {
+    color: {{ .color }};
+    background-color: {{ .bg_color }};
+  }
+
+  .section--even .btn:hover {
+    color: {{ .hover_color }};
+    background-color: {{ .hover_bg_color }};
+  }
+  {{ end }}
+
+  {{ end }} /* .buttons */
+
+ {{ end }} /* .Site.Params*/
 
  </style>
