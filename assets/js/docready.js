@@ -22,7 +22,7 @@ $(document).ready(function () {
 
   // initialize hero size
   heroResize();
-  iframeResize();
+  itemResize('iframe');
 
   $('section').flowtype({
     // maximum: 1000,
@@ -39,7 +39,7 @@ $(document).ready(function () {
   // resize elements on change
   $(window).resize(function () {
     heroResize();
-    iframeResize();
+    itemResize('iframe');
   });
 
 });

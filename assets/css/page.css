@@ -87,6 +87,10 @@
   align-items: center;
 }
 
+.box--image {
+  max-width: 450px;
+}
+
 .box--headline {
 }
 

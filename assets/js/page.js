@@ -33,19 +33,19 @@ $('a[href*="#"]:not([href="#"])').click(function () {
 
 }());
 
-function iframeResize(maxWidth = 450, widthPadding = 30) {
+function itemResize(item, maxWidth = 450, widthPadding = 30) {
   let windowWidth = $(window).width()
   let width = (windowWidth > maxWidth) ? maxWidth : windowWidth - widthPadding
   console.log(`passed width ${width}`)
-  jQuery('iframe').fitToParent({
+  jQuery(item).fitToParent({
     heightOffset: 0, // (int) Put some space around the element
     // widthOffset: 5, // (int) Put some space around the element
     // boxHeight: , // (int) Will look for .size-parent, or fallback to parent size
-    boxWidth: width, // (int) Will look for .size-parent, or fallback to parent size
-    callback: function (newWidth, newHeight) {
-      // alert(`after w h ${newWidth} ${newHeight}`)
-      // Fires after fitting is complete
-    }
+    boxWidth: width // (int) Will look for .size-parent, or fallback to parent size
+      // callback: function (newWidth, newHeight) {
+      //   // alert(`after w h ${newWidth} ${newHeight}`)
+      //   // Fires after fitting is complete
+      // }
   })
 }
 
