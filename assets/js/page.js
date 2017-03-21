@@ -1,11 +1,3 @@
-// hero resizer
-function heroResize() {
-  $('#hero').css({
-    width: $(window).width(),
-    height: $(window).height()
-  });
-}
-
 // Smooth Scroll Init - Register click handler for ID anchors
 $('a[href*="#"]:not([href="#"])').click(function () {
   if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
@@ -33,6 +25,19 @@ $('a[href*="#"]:not([href="#"])').click(function () {
 
 }());
 
+// hero resizer
+function heroResize() {
+  $('#hero').css({
+    width: $(window).width() + 10,
+    height: $(window).height() + 10
+  });
+  $('#hero').flowtype({
+    maxFont: 60,
+    fontRatio: 15
+  });
+}
+
+// child item resize based on parent container (i.e. flexbox)
 function itemResize(item, maxWidth = 450, widthPadding = 30) {
   let windowWidth = $(window).width()
   let width = (windowWidth > maxWidth) ? maxWidth : windowWidth - widthPadding
@@ -42,97 +47,40 @@ function itemResize(item, maxWidth = 450, widthPadding = 30) {
     // widthOffset: 5, // (int) Put some space around the element
     // boxHeight: , // (int) Will look for .size-parent, or fallback to parent size
     boxWidth: width // (int) Will look for .size-parent, or fallback to parent size
-      // callback: function (newWidth, newHeight) {
-      //   // alert(`after w h ${newWidth} ${newHeight}`)
-      //   // Fires after fitting is complete
-      // }
+      // callback: function (newWidth, newHeight) {}
   })
 }
 
-// /*
-//  * throttledresize: special jQuery event that happens at a reduced rate compared to "resize"
-//  *
-//  * latest version and complete README available on Github:
-//  * https://github.com/louisremi/jquery-smartresize
-//  *
-//  * Copyright 2012 @louis_remi
-//  * Licensed under the MIT license.
-//  *
-//  * This saved you an hour of work?
-//  * Send me music http://www.amazon.co.uk/wishlist/HNTU0468LQON
-//  */
-// (function ($) {
-//
-//   var $event = $.event,
-//     $special,
-//     dummy = { _: 0 },
-//     frame = 0,
-//     wasResized, animRunning;
-//
-//   $special = $event.special.throttledresize = {
-//     setup: function () {
-//       $(this).on("resize", $special.handler);
-//     },
-//     teardown: function () {
-//       $(this).off("resize", $special.handler);
-//     },
-//     handler: function (event, execAsap) {
-//       // Save the context
-//       var context = this,
-//         args = arguments;
-//
-//       wasResized = true;
-//
-//       if (!animRunning) {
-//         setInterval(function () {
-//           frame++;
-//
-//           if (frame > $special.threshold && wasResized || execAsap) {
-//             // set correct event type
-//             event.type = "throttledresize";
-//             $event.dispatch.apply(context, args);
-//             wasResized = false;
-//             frame = 0;
-//           }
-//           if (frame > 9) {
-//             $(dummy).stop();
-//             animRunning = false;
-//             frame = 0;
-//           }
-//         }, 30);
-//         animRunning = true;
-//       }
-//     },
-//     threshold: 0
-//   };
-//
-// })(jQuery, 'throttledResize');
-//
-// // debouncing function for window resize from John Hann
-// // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
-// (function ($, sr) {
-//   var debounce = function (func, threshold, execAsap) {
-//       var timeout;
-//
-//       return function debounced() {
-//         var obj = this,
-//           args = arguments;
-//
-//         function delayed() {
-//           if (!execAsap)
-//             func.apply(obj, args);
-//           timeout = null;
-//         };
-//
-//         if (timeout)
-//           clearTimeout(timeout);
-//         else if (execAsap)
-//           func.apply(obj, args);
-//
-//         timeout = setTimeout(delayed, threshold || 100);
-//       };
-//     }
-//     // smartresize
-//   jQuery.fn[sr] = function (fn) { return fn ? this.bind('resize', debounce(fn, 50)) : this.trigger(sr); };
-//
-// })(jQuery, 'debounceResize');
+function typeResize() {
+  $('.section').flowtype({
+    // maximum: 1000,
+    minFont: 12,
+    maxFont: 25,
+    fontRatio: 20
+  })
+}
+
+// Lightbox for Gallery
+
+function lightbox(id) {
+  // Intialize all the media i.e. photos with "media" id
+  // TODO use Hugo params to initialize multiple galleries/albums
+  var lg = $(id).lightGallery({
+    thumbnail: true,
+    thumbWidth: 80,
+    controls: true,
+    loop: false,
+    download: false,
+    counter: true,
+    // videojs: true
+  });
+
+  lg.on('onBeforeOpen.lg', function (event) {
+    $('.nav-bar').css("display", "none")
+  });
+
+  lg.on('onCloseAfter.lg', function (event) {
+    $('.nav-bar').css("display", "flex")
+  });
+
+}

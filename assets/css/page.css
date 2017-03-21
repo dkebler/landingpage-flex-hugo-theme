@@ -17,6 +17,8 @@
   max-width: 80%;
   padding-top: 0.3em;
   padding-bottom: 1em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 .section__content li {
@@ -27,11 +29,11 @@
   font-family: FontAwesome;
   content: "\f18e";
   padding-right: 0.5em;
-  padding-left: 1em;
+  padding-left: 0;
 }
 
 .section__content ul li {
-  text-indent: -3rem;
+  text-indent: -1.2rem;
 }
 
 .section--even {

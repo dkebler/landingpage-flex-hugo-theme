@@ -20,13 +20,13 @@
   flex-direction: row;
   justify-content: flex-start;
   align-content: center;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: 0.9em;
+  padding-bottom: 0.9em;
 }
 
 .nav-bar__logo,
 .nav-bar__menu-button {
-  font-size: 1.5em;
+  font-size: 1.8em;
   padding-left: 1em;
 }
 
@@ -53,8 +53,8 @@
   justify-content: center;
   transition: 200ms;
   border-top: 2px solid;
-  font-size: 2em;
-  padding: 1em;
+  font-size: 1.8em;
+  padding: .5em;
 }
 
 .nav-bar__menu-item > a {

@@ -37,7 +37,7 @@ jQuery.fn.fitToParent = function (options) {
     var parentWidth = settings.boxWidth - settings.widthOffset;
     var parentHeight = settings.boxHeight - settings.heightOffset;
 
-    console.log(`settings.boxWidth, parentWidth ${settings.boxWidth} ${parentWidth}`);
+    // console.log(`settings.boxWidth, parentWidth ${settings.boxWidth} ${parentWidth}`);
 
     // Maintain aspect ratio
     var aspect = $el.data('aspect');
@@ -45,6 +45,8 @@ jQuery.fn.fitToParent = function (options) {
       aspect = width / height;
       $el.data('aspect', aspect);
     }
+
+    // removed for flexbox parent with dynamic height
     //  var parentAspect = parentWidth / parentHeight;
     // // Resize to fit box
     // if (aspect > parentAspect) {
@@ -61,7 +63,7 @@ jQuery.fn.fitToParent = function (options) {
     newWidth = parentWidth;
     newHeight = (newWidth / aspect);
 
-    console.log(`width before setting ${newWidth}`)
+    // console.log(`width before setting ${newWidth}`)
 
     // Set new size of element
     $el.width(newWidth);
