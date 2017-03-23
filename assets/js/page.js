@@ -26,14 +26,27 @@ $('a[href*="#"]:not([href="#"])').click(function () {
 }());
 
 // hero resizer
-function heroResize() {
+function heroResize(bfr = 15) {
+  var h = $(window).height(),
+    w = $(window).width(),
+    fr = bfr * h / w
+    // console.log('w,h,fr', w, h, fr)
+    // minimum base font ratio
+  fr = (fr > bfr) ? bfr : fr
+    // adjust for short viewport height
+  fr = (w / h > 1 && h < 600) ? 15 * w / h : fr
+    //console.log('fr after', fr)
+
   $('#hero').css({
-    width: $(window).width() + 10,
-    height: $(window).height() + 10
+    width: w + 10,
+    height: h / w > 1.5 ? w * 1.5 : h,
+    'margin-top': $('#nav-bar').height()
   });
+
   $('#hero').flowtype({
-    maxFont: 60,
-    fontRatio: 15
+    maxFont: 50,
+    minFont: 18,
+    fontRatio: fr
   });
 }
 
@@ -41,7 +54,7 @@ function heroResize() {
 function itemResize(item, maxWidth = 450, widthPadding = 30) {
   let windowWidth = $(window).width()
   let width = (windowWidth > maxWidth) ? maxWidth : windowWidth - widthPadding
-  console.log(`passed width ${width}`)
+    // console.log(`passed width ${width}`)
   jQuery(item).fitToParent({
     heightOffset: 0, // (int) Put some space around the element
     // widthOffset: 5, // (int) Put some space around the element
