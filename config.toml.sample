@@ -4,6 +4,7 @@ title = "Site Title - Used for navbar by default"
 canonifyUrls = "true"
 staticDir ="assets"
 publishDir = "dist"
+theme = "landingpage-flex-hugo-for-noobs"
 
 [params]
 custom_css = ["css/custom.css"]  # can add other files in array and file in assets/css/
