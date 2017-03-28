@@ -23,5 +23,5 @@
 
     <!-- Custom/Override CSS files -->
     {{ range .Site.Params.custom_css }}
-        <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
+        <link rel="stylesheet" href="{{ . }}">
     {{ end }}
