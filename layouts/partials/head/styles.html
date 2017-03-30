@@ -180,6 +180,13 @@
     }
     {{ end }}
 
+    {{ with .comments }}
+    .section--comments {
+      color: {{ .color }};
+      background-color: {{ .bg_color }};
+    }
+    {{ end }}
+
   {{ end }}  /* end sections */
 
   {{ with .buttons }}

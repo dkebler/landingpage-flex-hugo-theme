@@ -17,7 +17,7 @@ A **complete** theme in a repo that's especially useful for **noobs** who just w
 
 **Goal:** Create a mobile first responsive flexbox based Hugo landing page theme including shortcodes that would allow a noob to generate a customized landing page by only knowing a little markdown.  Provide a starter repo to make it easy to create one's own landing page in a few minutes
 
-**Further Goal:** Add automated deployment to github pages, S3 bucket or any server using ssh.  My other project [4S](https://github.com/dkebler/4S) can do this it just needs to be intregate.  Also want to automate building photo galleries.  Currently this is done with [Thumbsup](https://github.com/thumbsup/thumbsup) and the generated code is made into a shortcode and the generated thumbs and images added to the project manually.
+**Further Goal:** Add automated (via nodejs) deployment to github pages, S3 bucket or any server using ssh.  My other project [4S](https://github.com/dkebler/4S) can do this it just needs to be intregated.  Also want to automate building photo galleries.  Currently this is done with [Thumbsup](https://github.com/thumbsup/thumbsup) and the generated code is made into a shortcode and the generated thumbs and images added to the project manually.  Also add in code minification and optimazation for production/distribution builds
 
 **Ultimiate Goal:** Put together a noob virtualbox VM with all the tools (e.g. atom, smartgit, hugo, node, etc.) and code installed and configured and ready to go.  Fire up the VM and you're instantly productive.
 
