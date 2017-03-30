@@ -41,7 +41,7 @@
 
 .nav-bar__menu {
   overflow-y: scroll;
-  max-height: 80vh;
+  max-height: 100vh;
 }
 
 .hide-menu {
@@ -68,7 +68,7 @@
   color: white;
 }
 
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 860px) {
   .nav-bar {
     flex-direction: row;
     flex-wrap: nowrap;

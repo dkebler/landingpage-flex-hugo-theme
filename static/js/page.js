@@ -25,6 +25,10 @@ $('a[href*="#"]:not([href="#"])').click(function () {
 
 }());
 
+// using an image for phone and toggle hide it
+$('#cell').click(function () { $('#cell-number').toggleClass("hide"); });
+// $('#phone').click(function () { alert('phone clicked'); return false; });
+
 // hero resizer
 function heroResize(bfr = 15) {
   var h = $(window).height(),

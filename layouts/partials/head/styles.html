@@ -49,7 +49,10 @@
  {{ with .hero }}
 
   {{ with .img }}
-  #hero {background-image: url("{{ . }}");}
+  {{ with $.Site.Params.imagespath }} {{ $.Scratch.Set "path" ( . ) }} {{ else }}{{ $.Scratch.Set "path" "/images/" }}{{ end }}
+  #hero {
+    background-image: url("{{ $.Scratch.Get "path" }}{{ . }}");
+  }
   {{ end }}
 
   {{ with .font }}

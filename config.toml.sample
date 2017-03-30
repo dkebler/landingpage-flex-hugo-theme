@@ -9,6 +9,15 @@ theme = "landingpage-flex-hugo-for-noobs"
 [params]
 custom_css = ["css/custom.css"]  # can add other files in array and file in assets/css/
 # font = "Acme"  # a valid google font name, default Roboto, sets for entire site, can be specifically overridden
+# imagespath = ""  # prepended to any image filename otherwise /images is assumed.  Allow you to house images elsewhere like s3 bucket
+
+[params.contact]
+  # name = ""
+  # email = ""
+  # address = ""
+  # cell = "541-xxx-xxx"
+  # cell_image = "cell.jpg"
+  # avatar = "me.jpg"
 
 [params.navbar]
   #logo_text = "Will override site title"  # default is to use the site title
@@ -72,6 +81,8 @@ custom_css = ["css/custom.css"]  # can add other files in array and file in asse
   # bg_color = "blue"
   # hover_color ="purple"
   # hover_bg_color ="white"
+
+
 
 # TODO enable via shortcode
 [[params.social]]

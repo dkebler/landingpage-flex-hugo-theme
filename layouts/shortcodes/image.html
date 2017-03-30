@@ -1,24 +1,13 @@
-
-<figure class="box box--column box--image"
-{{ with .Get "position" }}class="{{.}}"{{ end }}>
+{{ $path := "/images/" }}
+{{ with $.Site.Params.imagespath }} {{ $path := ( . ) }}{{ end }}
+<div class="box box--column box--image">
+{{ with .Get "title" }}
+  <div class="box__title">{{ . }}</div>
+  {{ end }}
 {{ with .Get "link"}}<a href="{{.}}">{{ end }}
-
-<img src="{{ .Page.Params.imagespath }}{{ .Get "filename" }}"{{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} />
+<img src="{{ $path }}{{ .Get "filename" }}" />
 {{ if .Get "link"}}</a>{{ end }}
-
-{{ if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
-
-<figcaption>
-
-{{ if or (.Get "caption") (.Get "attr")}}<p>
-{{ .Get "caption" }}
-{{ with .Get "attrlink"}}<a href="{{.}}"> {{ end }}
-{{ .Get "attr" }}
-{{ if .Get "attrlink"}}</a> {{ end }}
-</p> {{ end }}
-
-</figcaption>
-
+{{ with .Get "caption"}}
+<div class="box__caption">{{ . }}</div>
 {{ end }}
-
-</figure>
+</div>
