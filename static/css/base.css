@@ -92,14 +92,10 @@ p {
   margin-bottom: 1em;
 }
 
-li {
-  font-size: 1em;
-}
-
-/* elements */
-
+/* using ::before for list numbers and icons */
 nav,
-ul {
+ul,
+ol {
   list-style: none;
 }
 
@@ -157,7 +153,6 @@ hr {
   border-width: 2px;
   border-style: solid;
 }
-
 
 .flex-col-center {
   display: flex;

@@ -25,15 +25,39 @@
   padding-bottom: 0.7em;
 }
 
+/* lists in section content */
+.section__content li {
+  font-size: 1em;
+  list-style-type: none;
+  line-height: 0.9em;
+}
+
+.section__content ul,
+.section__content ol {
+  margin-left: 2em;
+  list-style-position: inside;
+  padding-top: 1em;
+}
+
 .section__content ul > li::before {
   font-family: FontAwesome;
   content: "\f18e";
-  padding-right: 0.5em;
-  padding-left: 0;
+  padding-right: 1.1em;
+  margin-left: -2em;
 }
 
-.section__content ul > li {
-  text-indent: -1.2rem;
+.section__content ol {
+  counter-reset: foo;
+}
+
+.section__content ol > li {
+  counter-increment: foo;
+}
+
+.section__content ol > li::before {
+  content: counter(foo) ".";
+  padding-right: 0.8em;
+  margin-left: -1.4em;
 }
 
 .section--even {
@@ -121,8 +145,6 @@
 .btn--large .btn__icon {
   font-size: 3rem;
 }
-
-
 
 .box--avatar > img,
 img.avatar {
