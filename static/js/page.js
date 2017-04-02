@@ -79,7 +79,7 @@ function typeResize() {
 
 // Lightbox for Gallery
 
-function lightbox(id) {
+function lightgallery(id) {
   // Intialize all the media i.e. photos with "media" id
   // TODO use Hugo params to initialize multiple galleries/albums
   var lg = $(id).lightGallery({

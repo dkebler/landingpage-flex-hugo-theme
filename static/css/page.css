@@ -1,6 +1,6 @@
 /* sections */
 
-.section-headline {
+.section__headline {
   text-align: center;
 }
 
@@ -25,14 +25,14 @@
   padding-bottom: 0.7em;
 }
 
-.section__content li::before {
+.section__content ul > li::before {
   font-family: FontAwesome;
   content: "\f18e";
   padding-right: 0.5em;
   padding-left: 0;
 }
 
-.section__content ul li {
+.section__content ul > li {
   text-indent: -1.2rem;
 }
 
@@ -74,14 +74,12 @@
  	Components/Shortcodes Styling
 ---------------- */
 
-/* box creates a flexbox wrapper */
+/* box creates a flexbox wrapper, row default */
 .box {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: wrap;
   align-content: center;
   justify-content: center;
-  /*padding: 0.0em;*/
 }
 
 .box--column {
@@ -101,12 +99,29 @@
 }
 
 .box--btn {
-  padding: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-.box--avatar  {
-  flex
+.box--btn-bar > .box--btn {
+  margin-right: 0.2em;
+  margin-bottom: 0.5em;
 }
+
+.btn__text {
+  align-self: center;
+}
+
+.btn__icon {
+  align-self: center;
+  padding-right: 0.2em;
+}
+
+.btn--large .btn__text,
+.btn--large .btn__icon {
+  font-size: 3rem;
+}
+
 
 
 .box--avatar > img,
@@ -115,7 +130,7 @@ img.avatar {
   border-radius: 50%;
   width: 100px;
   height: 100px;
-  padding: .5em;
+  padding: 0.5em;
 }
 
 .box--avatar > a {
@@ -136,18 +151,15 @@ img.avatar {
   max-width: 800px;
 }
 
-
 .box__contact-info > * {
   padding: 0.1em;
   align-self: center;
 }
 
 .box__contact-info > * > * {
-    margin : 0.2em;
-    align-self: center;
+  margin: 0.2em;
+  align-self: center;
 }
-
-
 
 /*turn off default bullets*/
 .box--gallery {

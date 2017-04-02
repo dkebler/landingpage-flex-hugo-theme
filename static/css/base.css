@@ -110,6 +110,7 @@ a,
   outline: 0;
   text-decoration: none;
   cursor: pointer;
+  font-weight: bold;
 }
 
 a:hover,
@@ -157,6 +158,7 @@ hr {
   border-style: solid;
 }
 
+
 .flex-col-center {
   display: flex;
   align-items: center;
@@ -179,4 +181,16 @@ hr {
 
 .hide {
   visibility: hidden;
+}
+
+.text-center p {
+  text-align: center;
+}
+
+.text-left p {
+  text-align: left;
+}
+
+.text-right p {
+  text-align: right;
 }

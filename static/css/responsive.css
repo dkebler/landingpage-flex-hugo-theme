@@ -2,8 +2,9 @@
 
 /* small tablets */
 @media only screen and (min-width: 600px) {
-  .section__content ul li {
-    text-indent: -2rem;
+  /* undo indent of small screens */
+  .section__content ul > li {
+    text-indent: 1rem;
   }
 }
 

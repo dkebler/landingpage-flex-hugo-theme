@@ -1,4 +1,24 @@
-<!-- parameters, jotformID,text for button-->
-<div class ="box box--btn">
-<a class="btn" href="{{.Get 0 }}">{{ .Get 1 }}</a>
-</div>
+{{ .Scratch.Set "url" (.Get "url") }}
+{{ .Scratch.Set "height" (.Get "height") }}
+{{ .Scratch.Set "width" (.Get "width" | default "1000") }}
+{{ if .Get "height" }}
+   {{ .Scratch.Set "height" ( printf ", height=%s" ( .Scratch.Get "height" ) ) }}
+  {{else}}
+    {{ .Scratch.Set "height" "" }}
+  {{ end }}
+
+{{ if eq (.Get "display") "window" }}
+{{ .Scratch.Set "url" ( printf "javascript:void( window.open('%s', 'blank', 'scrollbars=yes, toolbar=no, width=%s %s' ))" (.Scratch.Get "url") (.Scratch.Get "width") (.Scratch.Get "height") ) }}
+{{ end }}
+<a
+{{ if eq (.Get "display") "tab" }}target="_blank"{{ end }}
+{{ if eq (.Get "display") "modal" }}rel="modal:open"{{ end }}
+{{ if eq (.Get "type") "btn" }}class="box box--btn btn btn--{{ .Get "size" | default "regular" }}"{{ end }}
+{{ printf "href=%q" (.Scratch.Get "url") | safeHTMLAttr }}
+>
+{{ with .Get "icon" }}<i class="btn__icon fa fa-{{ . }}"></i>{{ end }}
+{{ if eq (.Get "type") "btn" }}<div class="btn__text">{{ .Get "text" }}</div>
+{{ else }}
+{{ .Get "text" }}
+{{ end }}
+</a>
