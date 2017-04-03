@@ -4,7 +4,7 @@
 
 ### TL;DR
 
-For those who are Hugo experienced and know what they are doing and are able to “figure out” the details simply clone the [starter repo](https://dkebler.github.io/landingpage-starter). Edit the markdown files in the /sections directory and settings in config.toml. To start from scratch by all means just clone (or submodule) this theme into an existing hugo project’s themes folder.  If you need to cheat and see ths guide it's [here](https://dkebler.github.io/landingpage-guide/#tldr)
+For those who are Hugo experienced and know what they are doing and are able to “figure out” the details simply clone the [guide repo](https://dkebler.github.io/landingpage-guide). Edit the markdown files in the /sections directory and settings in config.toml. To start from scratch by all means just clone (or submodule) this theme into an existing hugo project’s themes folder.  If you need to cheat and see ths guide it's [here](https://dkebler.github.io/landingpage-guide/#tldr)
 
 ### About
 
