@@ -174,10 +174,6 @@ hr {
   justify-content: flex-start;
 }
 
-.hide {
-  visibility: hidden;
-}
-
 .text-center p {
   text-align: center;
 }
@@ -188,4 +184,20 @@ hr {
 
 .text-right p {
   text-align: right;
+}
+
+/* keeps in the DOM but moves from the page */
+.invisible {
+  position: absolute;
+  left: -999em;
+}
+
+/*keeps in the same location and maintains it's layout space even though hidden*/
+.hide {
+  visibility: hidden;
+}
+
+/*completely removes from DOM */
+.remove {
+  display: none;
 }

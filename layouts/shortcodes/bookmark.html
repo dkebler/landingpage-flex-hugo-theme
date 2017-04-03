@@ -1,0 +1,6 @@
+{{ $numOfParams := ( len .Params ) }}
+{{ if eq $numOfParams 1 }} <span name="{{ .Get 0 }}">{{ .Get 0 }}</span> {{ end }}
+{{ if eq $numOfParams 2 }} <span name="{{ .Get 0 }}">{{ .Get 1 }}</span> {{ end }}
+{{ if eq $numOfParams 3 }}
+<span name="{{ .Get 0 }}" {{ if (.Get 2) "hide" }}class="invisible"{{ end }}>{{ .Get 1 }}</span>
+{{ end }}

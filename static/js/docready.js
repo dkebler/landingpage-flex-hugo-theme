@@ -5,7 +5,7 @@ $(document).ready(function () {
   heroResize();
   itemResize('iframe');
   typeResize(); // for section content
-
+  hljs.initHighlightingOnLoad();
   // resize elements on change
   $(window).resize(function () {
     heroResize();
@@ -13,4 +13,4 @@ $(document).ready(function () {
     typeResize();
   });
 
-});
+});;
