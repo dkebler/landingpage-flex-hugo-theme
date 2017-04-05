@@ -56,15 +56,19 @@
   {{ end }}
 
   {{ with .font }}
-  #hero .text { font-family:{{ . }},Helvetica,Arial,sans-serif;}
+  #hero > .section__container { font-family:{{ . }},Helvetica,Arial,sans-serif;}
   {{ end }}
 
   {{ with .color }}
-  #hero > .text { color: {{ . }}; }
+  #hero { color: {{ . }}; }
+  {{ end }}
+
+  {{ with .bg_color }}
+  #hero { background-color: {{ . }}; }
   {{ end }}
 
   {{ if and ( .text_outline ) ( .text_shadow ) }}
-  #hero > .text {
+  #hero > .section__container {
     text-shadow:
      -2px -2px 0 {{ .text_outline }},
       2px -2px 0 {{ .text_outline }},
@@ -75,7 +79,7 @@
    {{ else }}
 
    {{ with .text_outline }}
-   #hero > .text {
+   #hero > .section__container {
      text-shadow:
       -2px -2px 0 {{ . }},
        2px -2px 0 {{ . }},
@@ -85,7 +89,7 @@
    {{ end }}
 
    {{ with .text_shadow }}
-   #hero > .text {
+   #hero > .section__container {
      text-shadow:
       -7px -3px 0 {{ . }}
     }
@@ -131,11 +135,11 @@
   {{ end }}
 
   {{ with .divider_thickness }}
-  hr { border-width: {{ . }}px; }
+  #hero hr { border-width: {{ . }}px; }
   {{ end }}
 
   {{ with .divider_color }}
-  hr { border-top-color: {{ . }}; }
+  #hero hr { border-top-color: {{ . }}; }
   {{ end }}
 
   {{ end }}  /* end hero */
@@ -152,7 +156,7 @@
     {{ end }}
 
     {{ with .bullet_icon }}
-    .section__content ul > li::before {
+    .section__content :not(.highlight) ul > li::before {
       content: "{{ . }}";
       }
 

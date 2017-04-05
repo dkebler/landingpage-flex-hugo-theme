@@ -19,6 +19,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.4rem;
   flex-direction: column;
+  width: 100%;
   /* 14px default before jquery scalling */
 }
 
@@ -89,7 +90,7 @@ p {
   text-align: left;
   font-size: 1em;
   line-height: 1.2;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 /* using ::before for list numbers and icons */

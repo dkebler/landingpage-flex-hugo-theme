@@ -11,7 +11,7 @@
                 {{ if ne .Params.navbar false }}
                 {{ if ne .Params.hidden true }}
                 <li class="nav-bar__menu-item">
-                      <a href="#nav-{{ .File.BaseFileName }}">
+                      <a href="#{{ .File.BaseFileName }}">
                       {{ .Params.link_text | default .Title }}
                     </a>
                 </li>
@@ -21,3 +21,4 @@
         <!-- </nav> -->
       <!-- </div> -->
 </div>
+<div id="nav-bar-spacer"></div>

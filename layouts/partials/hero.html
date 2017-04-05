@@ -1,5 +1,6 @@
-<section id="hero">
-	<div class="text" >
+<section id="hero" class="section section--hero">
+	<div class="section__container" >
+			<div class="section__content section__content--hero" >
 				{{ with .Site.Params.hero }}
 					{{ with .headline }}<h1>{{ . }}</h1>{{ end }}
 					{{ with .subheadline }}<h2>{{ . }}</h2>{{ end }}
@@ -9,6 +10,6 @@
 					<h4> {{ . }}</h4>
 					{{ end }}
 				{{ end }}
-				</div>
-
+			</div>
+	</div>	
 </section>
