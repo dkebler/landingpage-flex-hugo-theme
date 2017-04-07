@@ -60,7 +60,7 @@
   margin-left: -1.4em;
 }
 
-.section--even {
+.section--odd {
   color: white;
   background-color: black;
 }
@@ -70,7 +70,7 @@
   background-color: grey;
 }
 
-.section--even .btn {
+.section--odd .btn {
   color: black;
   background-color: white;
   text-transform: uppercase;
@@ -82,11 +82,62 @@
   min-height: 4000px;
 }
 
+/* modal */
+
+.section--modal {
+  display: flex;
+  color: white;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.section__container--modal {
+  margin: 0.5em;
+  margin-top: 2em;
+  background-color: black;
+  color: white;
+  max-height: 85%;
+  border-radius: 1em;
+  width: auto;
+  padding-bottom: 1em;
+}
+
+.section__headline--modal {
+  padding-top: 0.5em;
+  position: relative;
+  width: 100%;
+  padding-right: 1.2em;
+}
+
+.section__headline--modal > h1 {
+  font-size: 1.2em;
+}
+
+.section__headline--modal > a[modal-close] {
+  position: absolute;
+  font-size: 1em;
+  top: 0.4em;
+  right: 0.4em;
+}
+
+.section__content--modal {
+  overflow-y: auto;
+  position: relative;
+  align-items: flex-start;
+  font-size: 0.7em;
+  padding: 1em;
+}
+
 /* ----------------
  	Hero Section
 ---------------- */
 #hero {
-  background-image: url("../images/hero.jpg");
+  background-image: url("/images/hero.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -96,6 +147,17 @@
 
 #hero .section-content--hero {
   text-align: center;
+  line-height: 1;
+}
+
+/*mobile first*/
+#hero h1,
+#hero h2,
+#hero h3,
+#hero h4,
+#hero h5,
+#hero h6 {
+  line-height: 1;
 }
 
 /* ----------------
@@ -197,14 +259,14 @@ img.avatar {
 }
 
 .box__caption {
-text-transform: capitalize;
-font-style: italic;
+  text-transform: capitalize;
+  font-style: italic;
 }
 
 .box__title {
- text-transform: uppercase;
- font-weight: bold;
- padding-top: 0.75em;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding-top: 0.75em;
 }
 
 .box__embed--disqus {
@@ -251,7 +313,7 @@ code {
 }
 
 code.hljs {
-  font-size: .75em;
+  font-size: 0.75em;
   border-radius: 0.2em;
   background-color: dimgrey;
   color: white;

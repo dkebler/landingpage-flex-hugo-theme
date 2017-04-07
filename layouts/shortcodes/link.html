@@ -11,9 +11,9 @@
 {{ .Scratch.Set "url" ( printf "javascript:void( window.open('%s', 'blank', 'scrollbars=yes, toolbar=no, width=%s %s' ))" (.Scratch.Get "url") (.Scratch.Get "width") (.Scratch.Get "height") ) }}
 {{ end }}
 <a
-{{ if eq (.Get "display") "tab" }}target="_blank"{{ end }}
-{{ if eq (.Get "display") "modal" }}rel="modal:open"{{ end }}
-{{ if eq (.Get "type") "btn" }}class="box box--btn btn btn--{{ .Get "size" | default "regular" }}"{{ end }}
+{{ if eq (.Get "display") "tab" }} target="_blank"{{ end }}
+{{ if eq (.Get "display") "modal" }} modal{{ end }}
+{{ if eq (.Get "type") "btn" }} class="box box--btn btn btn--{{ .Get "size" | default "regular" }}"{{ end }}
 {{ printf "href=%q" (.Scratch.Get "url") | safeHTMLAttr }}
 >
 {{ with .Get "icon" }}<i class="btn__icon fa fa-{{ . }}"></i>{{ end }}

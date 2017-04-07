@@ -42,8 +42,6 @@
  }
  {{ end }}
 
-
-
  {{ end }}  /* end navbar */
 
  {{ with .hero }}
@@ -192,6 +190,34 @@
     {{ end }}
 
   {{ end }}  /* end sections */
+
+
+  {{ with .modal }}
+
+  {{ with .font }}
+  .section__container--modal { font-family:{{ . }},Helvetica,Arial,sans-serif; }
+  {{ end }}
+
+  {{ with .color }}
+   .section__container--modal { color: {{ . }};  }
+  {{ end }}
+
+  {{ with .bg_color }}
+  .section__container--modal { background-color: {{ . }};  }
+  {{ end }}
+
+  {{ with .headline_size }}
+  .section__headline--modal > h1 { font-size: {{ . }}em; }
+  {{ end }}
+
+  {{ with .text_size }}
+  .section__container--modal { font-size: {{ . }}em; }
+  {{ end }}
+
+
+
+  {{ end }} /*end modal */
+
 
   {{ with .buttons }}
 

@@ -8,6 +8,7 @@ $(document).ready(function () {
   itemResize('iframe');
   typeResize(); // for section content
   hljs.initHighlightingOnLoad();
+  $('.section__content--modal').perfectScrollbar();
 
   // resize elements on change
   $(window).resize(function () {
@@ -16,6 +17,7 @@ $(document).ready(function () {
     heroResize();
     itemResize('iframe');
     typeResize();
+    $('.section__content--modal').perfectScrollbar('update');
   });
 
 });;

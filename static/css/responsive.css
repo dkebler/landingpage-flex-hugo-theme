@@ -9,9 +9,24 @@
 
 /* tablets */
 @media only screen and (min-width: 800px) {
+  .section__headline--modal > h1 {
+    font-size: 1.8em;
+  }
+
+  .section__headline--modal > a[modal-close] {
+    font-size: 1.2em;
+  }
 }
 
-@media only screen and (min-device-width: 800px) and (max-device-width: 1190px) {
+@media only screen and (min-device-width: 800px) and (max-device-width: 1199px) {
+  #hero h1,
+  #hero h2,
+  #hero h3,
+  #hero h4,
+  #hero h5,
+  #hero h6 {
+    line-height: 1.1;
+  }
 }
 
 /* desktop */
@@ -23,6 +38,15 @@
   /* help with centering content with hidden phone number */
   .box__contact {
     margin-left: 6em;
+  }
+
+  #hero h1,
+  #hero h2,
+  #hero h3,
+  #hero h4,
+  #hero h5,
+  #hero h6 {
+    line-height: inherit;
   }
 }
 

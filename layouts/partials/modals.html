@@ -1,0 +1,12 @@
+{{ range where .Site.RegularPages  "Section" "modal" }}
+<div id="modal-{{ .File.BaseFileName }}" class="section section--modal">
+	<div class="section__container	section__container--modal">
+		<div class="section__headline section__headline--modal">
+			<h1>{{ .Title }}</h1>
+		</div>
+		<div class="section__content section__content--modal" {{ with .Params.align }} style="align-items: {{.}};"{{ end }} >
+			{{ .Content }}
+		</div>
+	</div>
+</div>
+{{ end }}

@@ -1,5 +1,5 @@
 // Smooth Scroll Init - Register click handler for ID anchors
-$('a[href*="#"]:not([href="#"])').click(function () {
+$('a[href*="#"]:not(a[modal])').click(function () {
   if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
     var target = $(this.hash);
     target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
@@ -30,7 +30,7 @@ $('#cell').click(function () { $('#cell-number').toggleClass("hide"); });
 // $('#phone').click(function () { alert('phone clicked'); return false; });
 
 function navbarSpacer() {
-  $('#nav-bar-spacer').css({
+  $('.nav-bar-spacer').css({
     height: $(".nav-bar__header").outerHeight(true),
   });
 }
@@ -106,3 +106,40 @@ function lightgallery(id) {
   });
 
 }
+
+// Modal
+// hide all the modals before displaying
+$('.section--modal').each(function () {
+  $(this).hide();
+});
+
+// all but inside the modal box
+$(document).on('click', function (event) {
+  var container = $(".section__container--modal");
+  if (!container.is(event.target) && // If the target of the click isn't the container...
+    container.has(event.target).length === 0) // ... nor a descendant of the container
+  {
+    $('.section--modal.current').hide().removeClass("current");
+  }
+});
+
+$('.section__container--modal').click(function () {
+  $('.section--modal.current').hide().removeClass("current");
+  $('a[modal-close]').remove();
+});
+
+// register click for modal link
+$("a[modal]").click(function () {
+  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+    var target = this.hash;
+    $(target).addClass("current").show()
+    target = target + " > .section__container > .section__headline"
+    var closer = "<a modal-close class='fa-stack fa-2x' ><i class='fa fa-circle-thin fa-stack-2x'></i><i class='fa fa-close fa-stack-1x'></i></a>"
+    $(target).append(closer);
+  } else {
+    var target = this;
+  }
+  // alert(`I clicked on modal link ${target}`);
+  return false;
+});
+// end modal
