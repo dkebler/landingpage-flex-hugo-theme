@@ -129,6 +129,14 @@ img {
   max-width: 100%;
 }
 
+img.avatar {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  padding: 0.5em;
+}
+
 figure {
   display: block;
   padding: 1em;

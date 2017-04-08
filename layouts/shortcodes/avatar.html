@@ -1,5 +1,9 @@
+{{ $numOfParams := ( len .Params ) }}
+{{ $avatar := "avatar.jpg" }}
+{{ if eq $numOfParams 1 }}{{ $avatar := .Get 1 }}{{ end }}
 <div class="box box--avatar">
-  {{ with .Get "link" }}<a href="{{.}}">{{ end }}
-  <img src="{{ .Page.Params.imagespath }}{{ .Get "filename" }}"/>
-  {{ with .Get "link" }}</a>{{ end }}
+  {{ if eq $numOfParams 2 }}<a href="{{.Get 1 }}">{{ end }}
+  {{ $path := "/images/" }} {{ with $.Site.Params.imagespath }} {{ $path := ( . ) }}{{ end }}
+	<img class="avatar" src="{{ $path }}{{ $avatar }}"/>
+  {{ if eq $numOfParams 2 }}</a>{{ end }}
 </div>
