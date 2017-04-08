@@ -1,5 +1,6 @@
 <!-- Configurable Styles partial to appear in head -->
  <style>
+
 {{ with .Site.Params.font }}
   body { font-family:{{ . }},Helvetica,Arial,sans-serif; }
  {{ end }}
@@ -46,12 +47,14 @@
 
  {{ with .hero }}
 
-  {{ with .img }}
-  {{ with $.Site.Params.imagespath }} {{ $.Scratch.Set "path" ( . ) }} {{ else }}{{ $.Scratch.Set "path" "/images/" }}{{ end }}
-  #hero {
-    background-image: url("{{ $.Scratch.Get "path" }}{{ . }}");
-  }
+  {{ with $.Site.Params.imagespath }}
+    {{ $.Scratch.Set "path" ( . ) }}
+  {{ else }}
+     {{ $.Scratch.Set "path" ( printf "%s/images/"  ( $.Site.BaseURL | default "" ) ) }}
   {{ end }}
+  #hero {
+    background-image: url("{{ $.Scratch.Get "path" }}{{ .img | default "hero.jpg" }}");
+  }
 
   {{ with .font }}
   #hero > .section__container { font-family:{{ . }},Helvetica,Arial,sans-serif;}
