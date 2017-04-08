@@ -20,6 +20,7 @@ body {
   font-size: 1.4rem;
   flex-direction: column;
   width: 100vw;
+  overflow-x: hidden;
   /* 14px default before jquery scalling */
 }
 

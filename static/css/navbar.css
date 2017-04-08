@@ -68,12 +68,13 @@
   color: white;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1000px) {
   .nav-bar {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    padding-right: 1em;
   }
 
   .nav-bar__menu {

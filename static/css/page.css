@@ -135,6 +135,10 @@
   padding: 1em;
 }
 
+ /*fix for fucking google chrome pushing up overflow content */
+.section__content--modal * {
+  flex-shrink: 0;
+}
 /* ----------------
  	Hero Section
 ---------------- */

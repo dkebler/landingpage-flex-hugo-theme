@@ -48,7 +48,7 @@ function heroResize(bfr = 30) {
     //console.log('fr after', fr)
 
   $('#hero').css({
-    width: w + 10,
+    width: w+15,
     height: h / w > 1.5 ? w * 1.5 : h,
   });
 
@@ -174,3 +174,6 @@ function lightgallery(id) {
 }(jQuery));
 
 // end modal
+l
+l
+l
