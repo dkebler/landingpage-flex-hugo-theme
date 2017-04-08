@@ -3,7 +3,6 @@
  * Copyright 2013-2014, Simple Focus http://simplefocus.com/
  *
  */
-
 $.fn.flowtype = function (options) {
 
   // Establish default settings/variables

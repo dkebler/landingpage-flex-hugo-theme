@@ -1,23 +1,22 @@
-// requires jquery
-$(document).ready(function () {
-
-  // initialize
+(function initialze() {
   navbarSpacer();
-  // $('#page').css("width", $(window).width());
   heroResize();
   itemResize('iframe');
   typeResize(); // for section content
   hljs.initHighlightingOnLoad();
   $('.section__content--modal').perfectScrollbar();
+})();
 
-  // resize elements on change
-  $(window).resize(function () {
-    // $('#page').css("width", $(window).width());
-    navbarSpacer();
-    heroResize();
-    itemResize('iframe');
-    typeResize();
-    $('.section__content--modal').perfectScrollbar('update');
-  });
+// requires jquery
+$(document).ready(function () {
 
-});;
+});
+
+// resize elements on change
+$(window).resize(function () {
+  navbarSpacer();
+  heroResize();
+  itemResize('iframe');
+  typeResize();
+  $('.section__content--modal').perfectScrollbar('update');
+});

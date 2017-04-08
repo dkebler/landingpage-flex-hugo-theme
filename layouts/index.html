@@ -5,10 +5,10 @@
 {{ if ne .Site.Params.navbar.hidden true }}
   {{ partial "navbar.html" . }}
 {{ end }}
-<main id="page">
 {{ if ne .Site.Params.hero.custom_hero true }}
 {{ partial "hero.html" . }}
 {{ end }}
+<main class="sections">
 {{ partial "sections.html" . }}
 {{ partial "modals.html" . }}
 </main>

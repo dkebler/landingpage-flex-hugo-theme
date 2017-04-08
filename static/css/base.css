@@ -19,7 +19,7 @@ body {
   font-family: 'Roboto', sans-serif;
   font-size: 1.4rem;
   flex-direction: column;
-  width: 100%;
+  width: 100vw;
   /* 14px default before jquery scalling */
 }
 
@@ -29,6 +29,7 @@ body {
   padding-bottom: 1em;
   align-items: center;
   flex-direction: column;
+  width: 100vw;
 }
 
 /* mobile first column */

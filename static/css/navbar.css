@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   z-index: 10000;
-  width: 100%;
+  width: 100vw;
   color: black;
   background-color: white;
   border-bottom: 1px solid grey;

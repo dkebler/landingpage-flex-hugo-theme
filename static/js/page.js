@@ -36,7 +36,7 @@ function navbarSpacer() {
 }
 
 // hero resizer
-function heroResize(bfr = 15) {
+function heroResize(bfr = 30) {
   var h = $(window).height() - $(".nav-bar__header").outerHeight(true),
     w = $(window).width(),
     fr = bfr * h / w
@@ -44,7 +44,7 @@ function heroResize(bfr = 15) {
     // minimum base font ratio
   fr = (fr > bfr) ? bfr : fr
     // adjust for short viewport height
-  fr = (w / h > 1 && h < 600) ? 15 * w / h : fr
+  fr = (w / h > 1 && h < 700) ? 30 * w / h : fr
     //console.log('fr after', fr)
 
   $('#hero').css({
@@ -52,14 +52,17 @@ function heroResize(bfr = 15) {
     height: h / w > 1.5 ? w * 1.5 : h,
   });
 
+  var mf = w / h > 1 ? 0 : 12
+
   $('#hero').flowtype({
-    maxFont: 50,
-    minFont: 18,
+    maxFont: 30,
+    minFont: mf,
     fontRatio: fr
   });
 }
 
 // child item resize based on parent container (i.e. flexbox)
+// Especially good for iframes
 function itemResize(item, maxWidth = 450, widthPadding = 30) {
   let windowWidth = $(window).width()
   let width = (windowWidth > maxWidth) ? maxWidth : windowWidth - widthPadding
@@ -73,12 +76,12 @@ function itemResize(item, maxWidth = 450, widthPadding = 30) {
   })
 }
 
-function typeResize() {
-  $('.section').flowtype({
+function typeResize(fr = 20) {
+  $('main:not(#hero)').flowtype({
     // maximum: 1000,
     minFont: 12,
     maxFont: 25,
-    fontRatio: 20
+    fontRatio: fr
   })
 }
 
@@ -107,39 +110,67 @@ function lightgallery(id) {
 
 }
 
-// Modal
-// hide all the modals before displaying
-$('.section--modal').each(function () {
-  $(this).hide();
-});
+// Modal tool.  Must use modal template for content
+(function ($) {
 
-// all but inside the modal box
-$(document).on('click', function (event) {
-  var container = $(".section__container--modal");
-  if (!container.is(event.target) && // If the target of the click isn't the container...
-    container.has(event.target).length === 0) // ... nor a descendant of the container
-  {
-    $('.section--modal.current').hide().removeClass("current");
+  // extend jquery so remove handlers can be added and removed at the right time in a group
+  $.fn.modalHandlers = function (state = 'on') {
+
+    if (state === 'on') {
+      $(document).on('click', modalClickOutside);
+      $(document).keypress(modalEsc);
+      this.find('a[modal-close]').on('click', modalClickCloser);
+      return this
+    }
+
+    if (state === 'off') {
+      $(document).off('click', modalClickOutside);
+      $(document).off('keypress', modalEsc);
+      this.find('a[modal-close]').off('click', modalClickCloser);
+      return this
+    }
+
+    return false;
+
+  };
+
+  // modal event handlers - add more if you want - add them to extension above
+  function modalEsc(event) {
+    if (event.key === "Escape") { modalHide() }
   }
-});
 
-$('.section__container--modal').click(function () {
-  $('.section--modal.current').hide().removeClass("current");
-  $('a[modal-close]').remove();
-});
+  function modalClickOutside(event) {
+    var container = $(".section__container--modal");
+    if (!container.is(event.target) && // If the target of the click isn't the container...
+      container.has(event.target).length === 0) // ... nor a descendant of the container
+    { modalHide(); }
+  }
 
-// register click for modal link
-$("a[modal]").click(function () {
-  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-    var target = this.hash;
-    $(target).addClass("current").show()
-    target = target + " > .section__container > .section__headline"
+  function modalClickCloser(event) {
+    modalHide();
+  }
+
+  // modal show and hide
+  function modalShow(modal_hash) {
     var closer = "<a modal-close class='fa-stack fa-2x' ><i class='fa fa-circle-thin fa-stack-2x'></i><i class='fa fa-close fa-stack-1x'></i></a>"
-    $(target).append(closer);
-  } else {
-    var target = this;
+    $(modal_hash).find('.section__headline').append(closer).end().modalHandlers().addClass("current").css('display', 'flex');
   }
-  // alert(`I clicked on modal link ${target}`);
-  return false;
-});
+
+  function modalHide() {
+    $('.section--modal.current').hide().modalHandlers("off").removeClass("current").find('a[modal-close]').remove;
+  }
+
+  // Register click event for all modal links on page
+  $("a[modal]").click(function () {
+    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+      var target = this.hash;
+      modalShow(target);
+    } else {
+      alert(`modal display of off page content not supported`);
+    }
+    return false;
+  });
+
+}(jQuery));
+
 // end modal
