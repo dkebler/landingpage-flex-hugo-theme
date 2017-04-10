@@ -135,7 +135,7 @@
   padding: 1em;
 }
 
- /*fix for fucking google chrome pushing up overflow content */
+/*fix for fucking google chrome pushing up overflow content */
 .section__content--modal * {
   flex-shrink: 0;
 }
@@ -246,6 +246,7 @@
   opacity: 1;
 }
 
+/*may get rid of thise*/
 .box__embed {
   width: 100%;
   display: flex;
@@ -253,6 +254,28 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
+}
+
+.box--embed {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.thumb--yt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.thumb--yt:hover {
+  -webkit-filter: brightness(1.2);
+  cursor: pointer;
+}
+
+.thumb--yt > .play-button {
+  font-size: 4em;
 }
 
 .box__caption {

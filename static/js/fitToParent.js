@@ -10,8 +10,8 @@ jQuery.fn.fitToParent = function (options) {
     var $box;
 
     // Get size parent (box to fit element in)
-    if ($el.closest('.size-parent').length) {
-      $box = $el.closest('.size-parent');
+    if ($el.closest('.box--embed').length) {
+      $box = $el.closest('.box--embed');
     } else {
       $box = $el.parent();
     }
@@ -63,7 +63,8 @@ jQuery.fn.fitToParent = function (options) {
     newWidth = parentWidth;
     newHeight = (newWidth / aspect);
 
-    // console.log(`width before setting ${newWidth}`)
+    // console.log(`$parent,$element ${$box[0].classList} ${$el[0].tagName}`)
+    // console.log(`width and height before setting ${newWidth} ${newHeight}`)
 
     // Set new size of element
     $el.width(newWidth);
