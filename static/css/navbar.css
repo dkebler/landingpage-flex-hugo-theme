@@ -41,7 +41,7 @@
 
 .nav-bar__menu {
   overflow-y: scroll;
-  max-height: 100vh;
+  max-height: 75vh;
 }
 
 .hide-menu {
