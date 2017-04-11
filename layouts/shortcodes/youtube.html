@@ -1,4 +1,29 @@
-<!-- Used for embedding iframes from sites like youtube and google -->
-<div class="box box--embed box--youtube" youtube_id="{{ .Get 0 }}">
+<!-- TODO add in defaul maxwidth and wpad here with site parameters and scratch -->
+{{ with $.Site.Params.youtube }}{{ $.Scratch.Set "maxwidth" .maxwidth }}{{ end }}
+{{ with .Get "maxwidth" }}{{ $.Scratch.Set "maxwidth" . }}{{ end }}
+{{ with $.Site.Params.youtube }}{{ $.Scratch.Set "wpad" .wpad }}{{ end }}
+{{ with .Get "wpad" }}{{ $.Scratch.Set "wpad" . }}{{ end }}
+{{ if .IsNamedParams }}
+<div class="box box--column">
+    {{ with .Get "title" }}
+    <div class="box__title">{{ . }}</div>
+    {{ end }}
+    <div class="box box--embed box--youtube"
+       youtube_id="{{ .Get "id" }}"
+       {{ with .Get "start"}} start="{{ . }}"{{ end }}
+       {{ with .Get "plist"}} list="{{ . }}"{{ end }}
+       {{ with $.Scratch.Get "maxwidth"}} maxWidth="{{ . }}"{{ end }}
+       {{ with $.Scratch.Get "wpad"}} wPad="{{ . }}"{{ end }}
+       >
+  <!-- thumb and video get put here -->
+    </div>
+    {{ with .Get "caption"}}
+    <div class="box__caption">{{ . }}</div>
+    {{ end }}
+</div>
+{{ else }}
+{{ $numOfParams := ( len .Params ) }}
+<div class="box box--embed box--youtube" youtube_id="{{ .Get 0 }}" {{ if eq $numOfParams 2 }} start="{{ .Get 1 }}"{{ end }}>
       <!-- image or iframe injected here -->
 </div>
+{{ end }}

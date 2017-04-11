@@ -1,21 +1,26 @@
 function resizeElements() {
   navbarSpacer();
   heroResize();
-  tagResize('iframe');
-  tagResize('.thumb--yt');
+  // tagResize('iframe');
+  // tagResize('.thumb--yt');
   typeResize(); // for section content
   $('.section__content--modal').perfectScrollbar('update');
 };
 
-hljs.initHighlightingOnLoad();
-$('.section__content--modal').perfectScrollbar();
+function initialize() {
+  hljs.initHighlightingOnLoad();
+  $('.section__content--modal').perfectScrollbar();
+  resizeElements()
+};
+
+initialize();
 
 // requires jquery
 $(document).ready(function () {
-  resizeElements()
-});
 
-// resize elements on change
-$(window).resize(function () {
-  resizeElements()
+  // bind resize events
+  $(window).resize(function () {
+    resizeElements()
+  });
+
 });

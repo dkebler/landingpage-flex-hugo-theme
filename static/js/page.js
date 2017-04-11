@@ -61,22 +61,6 @@ function heroResize(bfr = 30) {
   });
 }
 
-// child item resize based on parent container (i.e. flexbox)
-// Especially good for iframes
-function tagResize(tag, maxWidth = 450, widthPadding = 30) {
-  let windowWidth = $(window).width()
-  let width = (windowWidth > maxWidth) ? maxWidth : windowWidth - widthPadding
-    // console.log(`passed width ${width}`)
-  console.log(`tag ${tag}`)
-  jQuery(tag).fitToParent({
-    heightOffset: 0, // (int) Put some space around the element
-    // widthOffset: 5, // (int) Put some space around the element
-    // boxHeight: , // (int) Will look for .size-parent, or fallback to parent size
-    boxWidth: width // (int) Will look for .size-parent, or fallback to parent size
-      // callback: function (newWidth, newHeight) {}
-  })
-}
-
 function typeResize(fr = 20) {
   $('main:not(#hero)').flowtype({
     // maximum: 1000,
