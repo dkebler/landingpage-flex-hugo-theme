@@ -1,21 +1,18 @@
 {{ if .IsNamedParams }}
-{{ with $.Site.Params.youtube }}{{ $.Scratch.Set "maxwidth" .maxwidth }}{{ end }}
-{{ with .Get "maxwidth" }}{{ $.Scratch.Set "maxwidth" . }}{{ end }}
-{{ with $.Site.Params.youtube }}{{ $.Scratch.Set "wpad" .wpad }}{{ end }}
-{{ with .Get "wpad" }}{{ $.Scratch.Set "wpad" . }}{{ end }}
-{{ with $.Site.Params.youtube }}{{ $.Scratch.Set "noThumb" .disable_thumb }}{{ end }}
-{{ with .Get "nothumb" }}{{ $.Scratch.Set "noThumb" . }}{{ end }}
-<div class="box box--column">
+{{ $.Scratch.Set "maxwidth" ( $.Page.Site.Params.youtube.maxwidth | .Get "maxwidth" )  }}
+{{ $.Scratch.Set "wpad" ( $.Page.Site.Params.youtube.wpad | .Get "wpad" )  }}
+{{ $.Scratch.Set "nothumb" ( $.Page.Site.Params.youtube.disable_thumb | .Get "nothumb" )  }}
+<div class="box box--embed box--column box--youtube">
     {{ with .Get "title" }}
     <div class="box__title">{{ . }}</div>
     {{ end }}
-    <div class="box box--embed box--youtube"
+    <div
        youtube_id="{{ .Get "id" }}"
        {{ with .Get "start"}} start="{{ . }}"{{ end }}
        {{ with .Get "plist"}} list="{{ . }}"{{ end }}
        {{ with $.Scratch.Get "maxwidth"}} maxWidth="{{ . }}"{{ end }}
        {{ with $.Scratch.Get "wpad"}} wPad="{{ . }}"{{ end }}
-       {{ with $.Scratch.Get "noThumb"}} nothumb="yes" {{ end }}
+       {{ with $.Scratch.Get "nothumb"}} nothumb="yes" {{ end }}
        >
   <!-- thumb and video get put here -->
     </div>
@@ -25,11 +22,10 @@
 </div>
 {{ else }}
 {{ $numOfParams := ( len .Params ) }}
-{{ with $.Site.Params.youtube }}{{ $.Scratch.Set "noThumb" .disable_thumb }}{{ end }}
 <div class="box box--embed box--youtube"
        youtube_id="{{ .Get 0 }}"
        {{ if eq $numOfParams 2 }} start="{{ .Get 1 }}"{{ end }}
-       {{ with $.Scratch.Get "noThumb"}} nothumb="yes" {{ end }}
+       {{ with $.Page.Site.Params.youtube.disable_thumb }} nothumb="yes" {{ end }}
        >
       <!-- image or iframe injected here -->
 </div>

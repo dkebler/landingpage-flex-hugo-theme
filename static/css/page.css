@@ -176,12 +176,37 @@
   flex-flow: wrap;
   align-content: center;
   justify-content: center;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.box--embed::before {
+  content: "";
+  height: 0.5em;
+}
+
+.box--embed::after {
+  content: "";
+  height: 0.5em;
+}
+
+.box--btn-bar {
+  padding-top: 0.5em;
   padding-bottom: 0.5em;
 }
 
 .box--column {
   flex-direction: column;
   align-items: center;
+}
+
+.box__caption {
+  font-style: italic;
+}
+
+.box__title {
+  text-transform: capitalize;
+  font-weight: bold;
 }
 
 .box--image {
@@ -197,12 +222,10 @@
 
 .box--btn {
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
 }
 
 .box--btn-bar > .box--btn {
   margin-right: 0.2em;
-  margin-bottom: 0.5em;
 }
 
 .btn__text {
@@ -246,7 +269,7 @@
   opacity: 1;
 }
 
-/*may get rid of thise*/
+/*may get rid of this after fixing embed shortcode */
 .box__embed {
   width: 100%;
   display: flex;
@@ -259,6 +282,7 @@
 .box--embed {
   flex-direction: column;
   flex-wrap: nowrap;
+  padding-bottom: 0;
 }
 
 .thumb--yt {
@@ -267,26 +291,18 @@
   justify-content: center;
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-filter: brightness(.8);
 }
 
 .thumb--yt:hover {
-  -webkit-filter: brightness(1.2);
+  -webkit-filter: brightness(1);
   cursor: pointer;
 }
 
 .thumb--yt > .play-button {
-  font-size: 4em;
-}
-
-.box__caption {
-  text-transform: capitalize;
-  font-style: italic;
-}
-
-.box__title {
-  text-transform: uppercase;
-  font-weight: bold;
-  padding-top: 0.75em;
+  font-size: 3.5em;
+  color: red;
+  text-shadow: 3px 3px  black;
 }
 
 .box__embed--disqus {
