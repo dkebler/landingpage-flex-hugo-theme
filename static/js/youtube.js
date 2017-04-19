@@ -38,3 +38,12 @@
   }
 
 }(jQuery));
+
+// TODO  grab the video title as well as the thumb for use in thumb display
+// only works if server allows cross domain like s3
+//http://stackoverflow.com/questions/1760231/how-do-i-get-the-title-of-a-youtube-video-if-i-have-the-video-id
+// #var ytApiKey = "...";
+// #var videoId = "ylLzyHk54Z0";
+// #$.get("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=" + videoId + "&key=" + ytApiKey, function(data) {
+// #alert(data.items[0].snippet.title);
+// # });
