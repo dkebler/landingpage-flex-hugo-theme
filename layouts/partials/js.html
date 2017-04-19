@@ -41,3 +41,10 @@ $(document).ready(function () {
 });
 </script>
 {{ end }}
+
+<!-- use same lightbox for full sized images in when link="modal" -->
+<script>
+$(document).ready(function () {
+  {{ $.Site.Params.lightbox | safeJS }}('.box--image')
+});
+</script>

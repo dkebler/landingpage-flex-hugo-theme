@@ -1,3 +1,4 @@
-<div class="box box--{{ .Get 0 }}">
+{{ $numOfParams := ( len .Params ) }}
+<div class="box {{ range .Params }}box--{{ . }} {{ end }}">
 {{ .Inner }}
 </div>

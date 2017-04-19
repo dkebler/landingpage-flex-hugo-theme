@@ -1,10 +1,13 @@
 {{ $path := "/images/" }}
+{{ $filename := .Get "filename" }}
 {{ with $.Site.Params.imagespath }} {{ $path := ( . ) }}{{ end }}
 <div class="box box--column box--image">
 {{ with .Get "title" }}
   <div class="box__title">{{ . }}</div>
   {{ end }}
-{{ with .Get "link"}}<a href="{{.}}">{{ end }}
+{{ with .Get "link"}}
+{{ if eq . "modal" }}<a href="{{ $path }}{{ $filename }}">{{ else }}<a href="{{.}}">{{ end }}
+{{ end }}
 <img src="{{ $path }}{{ .Get "filename" }}" />
 {{ if .Get "link"}}</a>{{ end }}
 {{ with .Get "caption"}}

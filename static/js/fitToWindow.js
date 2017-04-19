@@ -13,15 +13,16 @@
     this.each(function () {
       let $el = $(this);
 
-      console.log(`${maxWidth} ${wPad} ${$el.data('maxWidth')} ${$el.data('wPad')}`)
-
+      console.log(`element ${$el.prop("tagName")} ${$el.attr("class")} parent ${$el.parent().attr('class')}`)
+      console.log(`before ${maxWidth} ${wPad} ${$el.data('maxWidth')} ${$el.data('wPad')}`)
       maxWidth = (maxWidth || $el.data('maxWidth')) || 450
+      wPad = $el.parent().css("padding-left") > 0 ? $el.parent().css("padding-left") : wPad
       wPad = (wPad || $el.data('wPad')) || 5
 
       let windowWidth = $(window).width()
       let newWidth = (windowWidth > maxWidth) ? maxWidth : windowWidth - 2 * wPad
 
-      console.log(`${maxWidth} ${wPad} ${newWidth} ${$el.parent().attr('youtube_id')}`)
+      console.log(`after ${maxWidth} ${wPad} ${newWidth}`)
 
       // Initial Aspect given in attributes by element itself
       let setWidth = $el.attr('width');
@@ -54,7 +55,6 @@
       // Set new size of element
       $el.width(newWidth);
       $el.height(newHeight);
-
     });
 
   }

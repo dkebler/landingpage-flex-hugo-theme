@@ -8,13 +8,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 95%;
 }
 
 .section__content ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 80%;
+  max-width: 85%;
   padding-top: 0.3em;
   padding-bottom: 1em;
   padding-left: 0.5em;
@@ -207,11 +208,6 @@
 .box__title {
   text-transform: capitalize;
   font-weight: bold;
-}
-
-.box--image {
-  max-width: 450px;
-  padding: 0.5em;
 }
 
 .box--headline {
