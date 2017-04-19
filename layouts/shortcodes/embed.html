@@ -4,7 +4,14 @@
     {{ with .Get "title" }}
     <div class="box__title">{{ . }}</div>
     {{ end }}
+    <div
+       {{ with .Get "type" }} class="embed--{{ . }}"{{end}}
+       {{ with .Get "id" }} id="{{ . }}"{{end}}
+       {{ with .Get "maxwidth"}} maxWidth="{{ . }}"{{ end }}
+       {{ with .Get "wpad"}} wPad="{{ . }}"{{ end }}
+       >
     {{ .Inner }}
+    </div>
     {{ with .Get "caption"}}
     <div class="box__caption">{{ . }}</div>
     {{ end }}

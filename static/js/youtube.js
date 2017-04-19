@@ -7,11 +7,9 @@
       $('div[youtube_id]').each(function () {
         if ($(this).attr('nothumb') !== "yes") {
           var vid = $(this).attr('youtube_id');
-          var mw = $(this).attr('maxWidth');
-          var wp = $(this).attr('wPad');
           var bgi = `style="background-image: url(https://i.ytimg.com/vi/${vid}/mqdefault.jpg)"`
           var thumb = `<div class="thumb--yt" ${bgi} width="560" height="315">`
-          $(this).append(thumb).children().append(playBtn).click(insertIframe).fitToWindow(mw, wp)
+          $(this).append(thumb).children().append(playBtn).click(insertIframe).fitToWindow()
 
         } else { // if image thumbs turned off
           insertIframe.call(this)
