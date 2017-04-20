@@ -217,7 +217,8 @@
 }
 
 .box--btn {
-  padding: 0.5rem;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .box--btn-bar > .box--btn {
