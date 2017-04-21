@@ -181,6 +181,14 @@
   padding-right: 0.5em;
 }
 
+.box--embed {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding-bottom: 0;
+  justify-content: center;
+  align-items: center;
+}
+
 .box--embed::before {
   content: "";
   height: 0.5em;
@@ -239,6 +247,11 @@
   font-size: 3rem;
 }
 
+.btn--small .btn__text,
+.btn--small .btn__icon {
+  font-size: 1rem;
+}
+
 .btn--circle {
   border-radius: 50%;
   padding: 0.5em;
@@ -264,22 +277,6 @@
 
 .box--avatar > a {
   opacity: 1;
-}
-
-/*may get rid of this after fixing embed shortcode */
-.box__embed {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.box--embed {
-  flex-direction: column;
-  flex-wrap: nowrap;
-  padding-bottom: 0;
 }
 
 .thumb--yt {
@@ -335,14 +332,14 @@
 
 code {
   font-size: 0.8em;
-  font-family: Inconsolata;
+  font-family: 'Roboto Mono', monospace;
   background-color: black;
   border-radius: 0.2em;
   color: white;
   padding-left: 0.2em;
   padding-right: 0.2em;
   padding-top: 0.05em;
-  padding-bottom: 0.3em;
+  padding-bottom: 0.07em;
   overflow-x: scroll;
 }
 

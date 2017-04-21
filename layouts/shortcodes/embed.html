@@ -17,7 +17,7 @@
     {{ end }}
 </div>
 {{ else }}
-<div class="box box--embed box--{{ .Get 0 }}">
+<div class="box box--embed {{ with .Get 0 }}embed--{{ . }}{{ end }}">
     {{ .Inner }}
 </div>
 {{ end }}

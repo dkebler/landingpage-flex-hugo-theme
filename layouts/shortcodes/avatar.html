@@ -1,9 +1,13 @@
-{{ $numOfParams := ( len .Params ) }}
-{{ $avatar := "avatar.jpg" }}
-{{ if eq $numOfParams 1 }}{{ $avatar := .Get 1 }}{{ end }}
+{{ $path := "/images/" }} {{ with $.Site.Params.imagespath }} {{ $path := ( . ) }}{{ end }}
+{{ if .IsNamedParams }}
 <div class="box box--avatar">
-  {{ if eq $numOfParams 2 }}<a href="{{.Get 1 }}">{{ end }}
-  {{ $path := "/images/" }} {{ with $.Site.Params.imagespath }} {{ $path := ( . ) }}{{ end }}
-	<img class="avatar" src="{{ $path }}{{ $avatar }}"/>
-  {{ if eq $numOfParams 2 }}</a>{{ end }}
+  {{ with .Get "url" }}<a href="{{.}}">{{ end }}
+	<img class="avatar" src="{{ $path }}{{ .Get "img" }}"/>
+  {{ with .Get "url" }}</a>{{ end }}
 </div>
+{{ else }}
+{{ $avatar := ( .Get 0 | default "avatar.jpg" ) }}
+<div class="box box--avatar">
+	<img class="avatar" src="{{ $path }}{{ $avatar }}"/>
+</div>
+{{ end }}
