@@ -104,7 +104,6 @@ ol {
 a,
 .clickable {
   color: inherit;
-  opacity: 0.8;
   outline: 0;
   text-decoration: none;
   cursor: pointer;
@@ -113,7 +112,7 @@ a,
 
 a:hover,
 .clickable:hover {
-  opacity: 1;
+  filter: saturate(140%);
 }
 
 .btn {

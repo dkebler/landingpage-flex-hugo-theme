@@ -19,12 +19,12 @@
 }
 
 @media only screen and (min-device-width: 800px) and (max-device-width: 1199px) {
-  #hero h1,
-  #hero h2,
-  #hero h3,
-  #hero h4,
-  #hero h5,
-  #hero h6 {
+  .section--hero h1,
+  .section--hero h2,
+  .section--hero h3,
+  .section--hero h4,
+  .section--hero h5,
+  .section--hero h6 {
     line-height: 1.1;
   }
 }
@@ -40,12 +40,12 @@
     margin-left: 6em;
   }
 
-  #hero h1,
-  #hero h2,
-  #hero h3,
-  #hero h4,
-  #hero h5,
-  #hero h6 {
+  .section--hero h1,
+  .section--hero h2,
+  .section--hero h3,
+  .section--hero h4,
+  .section--hero h5,
+  .section--hero h6 {
     line-height: inherit;
   }
 }
