@@ -2,6 +2,7 @@
 {{ $filename := .Get "filename" }}
 {{ with $.Site.Params.imagespath }} {{ $path := ( . ) }}{{ end }}
 <div class="box box--column box--image
+{{ with .Get "style"}} box--image-{{ . }}{{ end }}
 {{ with .Get "link"}}{{ if eq . "lightbox" }} box--image-lightbox{{ end }}{{ end }}
 "
 {{ with .Get "maxwidth"}} maxWidth="{{ . }}"{{ end }}

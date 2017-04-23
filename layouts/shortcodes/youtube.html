@@ -12,6 +12,7 @@
     <div
        youtube_id="{{ .Get "id" }}"
        {{ with .Get "start"}} start="{{ . }}"{{ end }}
+       {{ with .Get "end"}} end="{{ . }}"{{ end }}
        {{ with .Get "plist"}} list="{{ . }}"{{ end }}
        {{ with $.Scratch.Get "maxwidth"}} maxWidth="{{ . }}"{{ end }}
        {{ with $.Scratch.Get "wpad"}} wPad="{{ . }}"{{ end }}

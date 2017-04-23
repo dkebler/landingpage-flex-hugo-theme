@@ -30,9 +30,10 @@
     var mw = $box.attr('maxWidth');
     var wp = $box.attr('wPad');
     var start = $box.attr("start") || 1
+    if ($box.attr("end")) { var end = "&end=" + $box.attr("end") } else { var end = "" }
     var list = ""
     if ($box.attr("list")) { list = `&list=${$box.attr("list")}` }
-    var url = `https://www.youtube.com/embed/${id}?${autoplay}start=${start}`
+    var url = `https://www.youtube.com/embed/${id}?${autoplay}start=${start}${end}`
     var vIframe = `<iframe width = "560" height = "315" src ="${url}${list}" frameborder = "0" allowfullscreen></iframe>`
     $box.html(vIframe).children().fitToWindow($box.data("maxWidth") || mw, $box.data("wPad") || wp)
   }

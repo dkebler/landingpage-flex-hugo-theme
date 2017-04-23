@@ -287,7 +287,7 @@
   justify-content: center;
   background-repeat: no-repeat;
   background-size: cover;
-  -webkit-filter: brightness(.8);
+  filter: brightness(0.8);
 }
 
 .thumb--yt:hover {
