@@ -5,3 +5,13 @@
     <meta name="author" content="">
     <meta http-equiv="Cache-Control" content="max-age= {{ .Params.cache_timeout | default "3600"}}" />
     <base href="{{ .Site.BaseURL }}">
+
+     <!-- force https if turned on.  Do this early in the head  -->
+    {{ if isset .Site.Params "force_https" }}
+    <script>
+    if (!(window.location.host.startsWith("127.0.0.1") || window.location.host.startsWith("localhost")) && (window.location.protocol != "https:")) {
+      window.location.protocol = "https";
+      document.location = "https:" + window.location.href.substring(window.location.protocol.length, window.location.href.length);
+    }
+    </script>
+    {{ end }}
