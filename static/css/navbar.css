@@ -1,5 +1,6 @@
 /* NAVIGATION BAR */
 
+/* mobile first at <1000px */
 .nav-bar {
   display: flex;
   flex-direction: column;
@@ -42,6 +43,7 @@
 .nav-bar__menu {
   overflow-y: scroll;
   max-height: 75vh;
+  padding-right: .5em;
 }
 
 .hide-menu {
@@ -68,13 +70,15 @@
   color: white;
 }
 
+/* bigger than small tablet */
 @media only screen and (min-width: 1000px) {
   .nav-bar {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    padding-right: 1em;
+    padding-right: 2em;
+    padding-left: 2em;
   }
 
   .nav-bar__menu {
@@ -111,10 +115,10 @@
   .nav-bar__menu-button {
     display: none;
   }
-}
+} /* end responsive */
 
 
-/* Desktop */
+/* full size */
 
 @media screen and (min-width: 1400px) {
   .nav-bar__menu-item,

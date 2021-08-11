@@ -103,16 +103,19 @@ ol {
 
 a,
 .clickable {
-  color: inherit;
+  color:inherit;
   outline: 0;
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
+  font-style: italic;
+  filter: saturate(200%);
 }
 
 a:hover,
 .clickable:hover {
-  filter: saturate(140%);
+  color: black;
+  filter: saturate(100%);
 }
 
 .btn {

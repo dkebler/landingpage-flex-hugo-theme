@@ -1,9 +1,11 @@
 <!-- Renders Section Based on Content -->
-{{ $.Scratch.Set "offset" 0 }}
+{{ if eq .Site.Params.sections.offset true }}{{ $.Scratch.Set "offset" 0 }}{{ else }}{{ $.Scratch.Set "offset" 1 }}{{ end }}
+{{ if eq .Site.Params.use_hero true }}{{ $.Scratch.Set "offset" 1 }}{{ end }}
 {{ range $i, $e := where ( where .Site.RegularPages  "Section" "sections" ) ".Params.hidden" "!=" true }}
-{{ if eq .File.BaseFileName "hero" }}{{ $.Scratch.Set "offset" 1 }}{{ end }}
 {{ $j := add ( $.Scratch.Get "offset" ) $i }}
-<section id="{{ .File.BaseFileName }}" class="section section--{{ .File.BaseFileName }} {{ if ne .File.BaseFileName "hero" }}section--{{ if modBool $j 2  }}odd{{ else  }}even{{ end }}{{ end }}">
+<section id="{{ .File.BaseFileName }}" class="section section--{{ .File.BaseFileName }} section--{{ if modBool $j 2  }}even{{ else  }}odd{{ end }}"
+style="color:{{ .Params.color }}; background-color:{{ .Params.bg_color }};"
+>
 	<div class="section__container">
 		<div class="section__headline section__headline--{{ .File.BaseFileName }}">
 			<h1>{{ .Title }}</h1>

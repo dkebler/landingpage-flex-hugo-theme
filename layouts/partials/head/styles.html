@@ -1,33 +1,33 @@
 <!-- Configurable Styles partial to appear in head -->
  <style>
 
+ {{ $navbar := .Site.Params.navbar }}
+ {{ $hero := .Site.Params.hero }}
+ {{ $sections := .Site.Params.sections }}
+ {{ $modal := .Site.Params.modal }}
+ {{ $buttons := .Site.Params.buttons }}
+
+ {{ $dark_color:=.Site.Params.dark_color }}
+ {{ $light_color:=.Site.Params.light_color }}
+
 {{ with .Site.Params.font }}
   body { font-family:{{ . }},Helvetica,Arial,sans-serif; }
  {{ end }}
 
- {{ with .Site.Params }}
+ /* NAVBAR */
 
- {{ with .navbar }}
-
- {{ with .font }}
+ {{ $bg_color := $navbar.bg_color | default $dark_color }}
+ {{ $color := $navbar.color | default $light_color }}
+ .nav-bar__menu-item:hover {color: {{ $bg_color }}; }
+ .nav-bar, .section--footer { background-color: {{ $bg_color }};  }
+ .nav-bar__logo, .nav-bar__menu, .nav-bar__menu-button, .section--footer { color: {{ $color }};  }
+ .nav-bar__menu-item:hover { background-color: {{ $color }}; }
+ 
+ {{ with $navbar.font }}
  .nav-bar__logo, .nav-bar__menu { font-family:{{ . }},Helvetica,Arial,sans-serif; }
  {{ end }}
 
- {{ with .bg_color }}
- .nav-bar__menu-item:hover {color: {{ . }}; }
- .nav-bar, .section--footer { background-color: {{ . }};  }
- {{ end }}
-
- {{ with .text_size }}
- .nav-bar__logo { font-size: {{ . }}em; }
- {{ end }}
-
- {{ with .color }}
-  .nav-bar__logo, .nav-bar__menu, .nav-bar__menu-button, .section--footer { color: {{ . }};  }
-  .nav-bar__menu-item:hover { background-color: {{ . }}; }
- {{ end }}
-
-{{ with .logo_text_short }}
+{{ with $navbar.logo_text_short }}
 @media only screen and (max-width: 400px) {
  .nav-bar__logo {
    text-indent: -9999px;
@@ -43,9 +43,24 @@
  }
  {{ end }}
 
- {{ end }}  /* end navbar */
+ /* HERO */
 
- {{ with .hero }}
+{{ if ne .Site.Params.hero.custom_hero true }}
+
+ {{ $bg_color := .Params.bg_color | default $light_color }}
+ <!-- {{ $bg_color := $hero.bg_color | default $light_color }} -->
+ {{ $color := $hero.color | default $dark_color }}
+
+   #hero { color: {{ $color }}; }
+   #hero { background-color: {{ $bg_color }}; }
+   #hero h1 { color: {{ $hero.headline_color | default $color }}; }
+   #hero h2 { color: {{ $hero.subheadline_color | default $color }}; }
+   #hero h3 { color: {{ $hero.subsubheadline_color | default $color }}; }
+   #hero h4 { color: {{ $hero.lines_color | default $color }}; }
+   #hero hr { border-top-color: {{ $hero.divider_color | default $color }}; }
+  
+
+ {{ with $hero }}
 
   {{ with $.Site.Params.imagespath }}
     {{ $.Scratch.Set "path" ( . ) }}
@@ -60,13 +75,7 @@
   #hero > .section__container { font-family:{{ . }},Helvetica,Arial,sans-serif;}
   {{ end }}
 
-  {{ with .color }}
-  #hero { color: {{ . }}; }
-  {{ end }}
 
-  {{ with .bg_color }}
-  #hero { background-color: {{ . }}; }
-  {{ end }}
 
   {{ if and ( .text_outline ) ( .text_shadow ) }}
   #hero > .section__container {
@@ -103,32 +112,16 @@
   #hero h1, #hero h2, #hero h3 { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
   {{ end }}
 
-  {{ with .headline_color }}
-  #hero h1 { color: {{ . }}; }
-  {{ end }}
-
-  {{ with .headline_size }}
+   {{ with .headline_size }}
   #hero h1 { font-size: {{ . }}em; }
-  {{ end }}
-
-  {{ with .subheadline_color }}
-  #hero h2 { color: {{ . }}; }
   {{ end }}
 
   {{ with .subheadline_size }}
   #hero h2 { font-size: {{ . }}em; }
   {{ end }}
 
-  {{ with .subsubheadline_color }}
-  #hero h3 { color: {{ . }}; }
-  {{ end }}
-
-  {{ with .subsubheadline_size }}
+ {{ with .subsubheadline_size }}
   #hero h3 { font-size: {{ . }}em; }
-  {{ end }}
-
-  {{ with .lines_color }}
-  #hero h4 { color: {{ . }}; }
   {{ end }}
 
   {{ with .lines_size }}
@@ -139,18 +132,32 @@
   #hero hr { border-width: {{ . }}px; }
   {{ end }}
 
-  {{ with .divider_color }}
-  #hero hr { border-top-color: {{ . }}; }
-  {{ end }}
 
-  {{ end }}  /* end hero */
+  {{ end }}  /* end with hero */
 
+  {{ end }}  /* end not custom hero
 
-  {{ with .sections }}
+  /* sections */
+
+ {{ $bg_color := $sections.bg_color | default $light_color }}
+ {{ $color := $sections.color | default $dark_color }}
+  
+ .section--odd, .section--even .btn {
+   color: {{ $sections.odd.color | default $color }};
+   background-color: {{ $sections.odd.bg_color | default $bg_color }};
+ }
+.section--even, .section--odd .btn {
+   color: {{ $sections.even.color | default $bg_color }};
+   background-color: {{ $sections.even.bg_color | default $color }};
+  }
+
+  {{ with $sections }}
 
     {{ with .font }}
     .section, .section h1, .section h2, .section h3, .section p { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
     {{ end }}
+
+  
 
     {{ with .headline_font }}
     .section__headline h1 { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
@@ -163,20 +170,7 @@
 
     {{ end }}
 
-    {{ with .odd }}
-    .section--odd, .section--even .btn {
-      color: {{ .color }};
-      background-color: {{ .bg_color }};
-    }
 
-    {{ end }}
-
-    {{ with .even }}
-    .section--even, .section--odd .btn {
-      color: {{ .color }};
-      background-color: {{ .bg_color }};
-    }
-    {{ end }}
 
     {{ with .footer }}
     .section--footer {
@@ -195,7 +189,7 @@
   {{ end }}  /* end sections */
 
 
-  {{ with .modal }}
+  {{ with $modal }}
 
   {{ with .font }}
   .section__container--modal { font-family:{{ . }},Helvetica,Arial,sans-serif; }
@@ -222,7 +216,7 @@
   {{ end }} /*end modal */
 
 
-  {{ with .buttons }}
+  {{ with $buttons }}
 
   {{ with .odd }}
   .section--odd .btn {
@@ -249,7 +243,5 @@
   {{ end }}
 
   {{ end }} /* .buttons */
-
- {{ end }} /* .Site.Params*/
 
  </style>
