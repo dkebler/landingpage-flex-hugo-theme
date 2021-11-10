@@ -10,7 +10,11 @@ style="color:{{ .Params.color }}; background-color:{{ .Params.bg_color }};"
 		<div class="section__headline section__headline--{{ .File.BaseFileName }}">
 			<h1>{{ .Title }}</h1>
 		</div>
-		<div class="section__content section-content--{{ .File.BaseFileName }}" {{ with .Params.align }} style="align-items: {{.}};"{{ end }} >
+		<div class="section__content section-content--{{ .File.BaseFileName }}" {{ with .Params.align }} 
+		style="align-items: 
+		{{ if eq . "left" }} flex-start {{ end }}
+		{{ if eq . "right" }} flex-end {{ end }};"
+		{{ end }} >
 			{{ .Content }}
 		</div>
 	</div>

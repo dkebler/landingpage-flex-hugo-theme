@@ -66,6 +66,12 @@
   background-color: black;
 }
 
+.section--404 {
+  color: white;
+  background-color: black;
+  height: 1000px;
+}
+
 .section--hero {
   color: white;
   background-color: grey;

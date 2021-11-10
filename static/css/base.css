@@ -108,13 +108,13 @@ a,
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
-  font-style: italic;
-  filter: saturate(200%);
+  /* font-style: italic;
+  filter: saturate(200%); */
 }
 
 a:hover,
 .clickable:hover {
-  color: black;
+  color: rgb(161, 44, 44);
   filter: saturate(100%);
 }
 

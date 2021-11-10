@@ -21,7 +21,14 @@ $('a[href*="#"]:not(a[modal])').click(function () {
     $('.nav-bar__menu')[0].style.transition = "max-height 0.5s";
     $('.nav-bar__menu')[0].classList.toggle("hide-menu");
   }
-  $('.nav-bar__menu-button, .nav-bar__menu-item > a').click(toggleMobileMenu)
+
+   function hideMobileMenu() {
+    $('.nav-bar__menu')[0].style.transition = "max-height 0.5s";
+    $('.nav-bar__menu')[0].classList.add("hide-menu");
+  }
+
+  $('.nav-bar__menu-button, .nav-bar__menu, .nav-bar__menu-item').click(toggleMobileMenu)
+  $("main").click(hideMobileMenu)
 
 }());
 
@@ -31,7 +38,7 @@ $('#cell').click(function () { $('#cell-number').toggleClass("hide"); });
 
 function navbarSpacer() {
   $('.nav-bar-spacer').css({
-    height: $(".nav-bar__header").outerHeight(true),
+    height: $("#nav-bar").outerHeight(true),
   });
 }
 

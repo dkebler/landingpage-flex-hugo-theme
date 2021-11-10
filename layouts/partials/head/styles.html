@@ -6,7 +6,8 @@
  {{ $sections := .Site.Params.sections }}
  {{ $modal := .Site.Params.modal }}
  {{ $buttons := .Site.Params.buttons }}
-
+ {{ $imagesurl := .Site.Params.imagesurl | default ( printf "%simages/"  ( $.Site.BaseURL | default "" )) }}
+ {{ $filesurl := .Site.Params.filesurl | default "./assets/assets/" }}
  {{ $dark_color:=.Site.Params.dark_color }}
  {{ $light_color:=.Site.Params.light_color }}
 
@@ -18,10 +19,10 @@
 
  {{ $bg_color := $navbar.bg_color | default $dark_color }}
  {{ $color := $navbar.color | default $light_color }}
- .nav-bar__menu-item:hover {color: {{ $bg_color }}; }
- .nav-bar, .section--footer { background-color: {{ $bg_color }};  }
- .nav-bar__logo, .nav-bar__menu, .nav-bar__menu-button, .section--footer { color: {{ $color }};  }
- .nav-bar__menu-item:hover { background-color: {{ $color }}; }
+ .nav-bar__menu-item:hover, .nav-bar__menu-item >a:hover  {color: {{ $bg_color }}; }
+ .nav-bar__container, .section--footer { background-color: {{ $bg_color }};  }
+ .nav-bar__logo,.nav-bar__logo:hover, .nav-bar__menu, .nav-bar__menu-button, .section--footer { color: {{ $color }};  }
+ .nav-bar__menu-item:hover, .nav-bar__menu-item >a:hover  { background-color: {{ $color }}; }
  
  {{ with $navbar.font }}
  .nav-bar__logo, .nav-bar__menu { font-family:{{ . }},Helvetica,Arial,sans-serif; }
@@ -45,95 +46,37 @@
 
  /* HERO */
 
-{{ if ne .Site.Params.hero.custom_hero true }}
 
- {{ $bg_color := .Params.bg_color | default $light_color }}
- <!-- {{ $bg_color := $hero.bg_color | default $light_color }} -->
+ {{ if ne .Site.Params.hero.custom_hero true }}
+
+ {{ $bg_color := $hero.bg_color | default $light_color }}
  {{ $color := $hero.color | default $dark_color }}
 
-   #hero { color: {{ $color }}; }
-   #hero { background-color: {{ $bg_color }}; }
-   #hero h1 { color: {{ $hero.headline_color | default $color }}; }
-   #hero h2 { color: {{ $hero.subheadline_color | default $color }}; }
-   #hero h3 { color: {{ $hero.subsubheadline_color | default $color }}; }
-   #hero h4 { color: {{ $hero.lines_color | default $color }}; }
-   #hero hr { border-top-color: {{ $hero.divider_color | default $color }}; }
-  
+ #hero { color: {{ $color }}; }
 
- {{ with $hero }}
+ #hero { background-color: {{ $bg_color }}; }
+ {{ if eq $hero.text_shadow true }}
+ #hero { text-shadow: 
+  {{ $hero.text_shadow_horz | default 2 }}px 
+  {{ $hero.text_shadow_vert | default 2 }}px 
+  {{ $hero.text_shadow_blur | default 0 }}px 
+  {{ $hero.text_shadow_color | default $bg_color }}; }
+ {{ end}}
+ {{/*  #hero {	text-shadow: -1px 1px 2px white,
+				  1px 1px 2px white,
+				  1px -1px 0 white,
+				  -1px -1px 0 white
+ }  */}}
+ #hero h1 { color: {{ $hero.headline_color | default $color }}; }
+ #hero h2 { color: {{ $hero.subheadline_color | default $color }}; }
+ #hero h3 { color: {{ $hero.subsubheadline_color | default $color }}; }
+ #hero h4 { color: {{ $hero.lines_color | default $color }}; }
+ #hero hr { border-top-color: {{ $hero.divider_color | default $color }}; }
+{{ $image := .Site.Params.hero.img | default "hero.jpg" }}
+/* TODO mobile image substitution */
+{{ $image := print $imagesurl $image }} 
+ #hero { background-image: url("{{ $image }}"); }
 
-  {{ with $.Site.Params.imagespath }}
-    {{ $.Scratch.Set "path" ( . ) }}
-  {{ else }}
-     {{ $.Scratch.Set "path" ( printf "%s/images/"  ( $.Site.BaseURL | default "" ) ) }}
-  {{ end }}
-  #hero {
-    background-image: url("{{ $.Scratch.Get "path" }}{{ .img | default "hero.jpg" }}");
-  }
-
-  {{ with .font }}
-  #hero > .section__container { font-family:{{ . }},Helvetica,Arial,sans-serif;}
-  {{ end }}
-
-
-
-  {{ if and ( .text_outline ) ( .text_shadow ) }}
-  #hero > .section__container {
-    text-shadow:
-     -2px -2px 0 {{ .text_outline }},
-      2px -2px 0 {{ .text_outline }},
-     -2px 2px 0 {{ .text_outline }},
-      2px 2px 0 {{ .text_outline }},
-      -7px -3px 0 {{ .text_shadow }};
-   }
-   {{ else }}
-
-   {{ with .text_outline }}
-   #hero > .section__container {
-     text-shadow:
-      -2px -2px 0 {{ . }},
-       2px -2px 0 {{ . }},
-       -2px 2px 0 {{ . }},
-        2px 2px 0 {{ . }};
-    }
-   {{ end }}
-
-   {{ with .text_shadow }}
-   #hero > .section__container {
-     text-shadow:
-      -7px -3px 0 {{ . }}
-    }
-   {{ end }}
-
-   {{ end }}
-
-
-  {{ with .headlines_font }}
-  #hero h1, #hero h2, #hero h3 { font-family: "{{ . }}",Helvetica,Arial,sans-serif; }
-  {{ end }}
-
-   {{ with .headline_size }}
-  #hero h1 { font-size: {{ . }}em; }
-  {{ end }}
-
-  {{ with .subheadline_size }}
-  #hero h2 { font-size: {{ . }}em; }
-  {{ end }}
-
- {{ with .subsubheadline_size }}
-  #hero h3 { font-size: {{ . }}em; }
-  {{ end }}
-
-  {{ with .lines_size }}
-  #hero h4 { font-size: {{ . }}em; }
-  {{ end }}
-
-  {{ with .divider_thickness }}
-  #hero hr { border-width: {{ . }}px; }
-  {{ end }}
-
-
-  {{ end }}  /* end with hero */
 
   {{ end }}  /* end not custom hero
 

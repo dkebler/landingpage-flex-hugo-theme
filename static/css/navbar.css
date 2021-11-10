@@ -1,7 +1,8 @@
 /* NAVIGATION BAR */
 
 /* mobile first at <1000px */
-.nav-bar {
+
+#nav-bar {
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -9,31 +10,38 @@
   left: 0;
   z-index: 10000;
   width: 100vw;
+}
+
+.nav-bar__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   color: black;
   background-color: white;
   border-bottom: 1px solid grey;
-  font-size: 1em;
   font-weight: bold;
+  font-size: 2em;
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
 .nav-bar__header {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-content: center;
+  align-content: start;
   padding-top: 0.9em;
   padding-bottom: 0.9em;
 }
 
-.nav-bar__logo,
-.nav-bar__menu-button {
-  font-size: 1.8em;
+.nav-bar__logo {
   padding-left: 1em;
 }
 
 .nav-bar__logo {
   order: 2;
 }
+
 
 .nav-bar__menu-button {
   order: 1;
@@ -55,7 +63,6 @@
   justify-content: center;
   transition: 200ms;
   border-top: 2px solid;
-  font-size: 1.8em;
   padding: .35em;
 }
 
@@ -65,20 +72,32 @@
   opacity: 1;
 }
 
-.nav-bar__menu-item:hover {
-  background-color: black;
-  color: white;
+.nav-bar__menu-item:hover, .nav-bar__menu-item >a:hover {
+  background-color: white;
+  color: black;
 }
+
+.nav-bar__draft {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: red;
+  font-weight: bold;
+  font-size: 1em;
+  width: 100%;
+  height: 2em;
+}
+
 
 /* bigger than small tablet */
 @media only screen and (min-width: 1000px) {
-  .nav-bar {
+  .nav-bar__container {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    padding-right: 2em;
-    padding-left: 2em;
+    font-size: 2.5em;
   }
 
   .nav-bar__menu {
@@ -103,8 +122,8 @@
   }
 
   .nav-bar__menu-item,
-  .nav-bar__logo {
-    font-size: 1.5em;
+  .nav-bar__logo, 
+  .nav-bar__draft {
     padding-left: 0.3em;
     padding-right: 0.3em;
     padding-top: 0.7em;
@@ -121,10 +140,6 @@
 /* full size */
 
 @media screen and (min-width: 1400px) {
-  .nav-bar__menu-item,
-  .nav-bar__logo {
-    font-size: 2em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-  }
+
+
 }

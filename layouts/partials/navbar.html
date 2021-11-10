@@ -1,24 +1,27 @@
 <!-- Navigation -->
-<div id="nav-bar" class="nav-bar">
-    <!-- <div class="nav-bar__container">  -->
-        <div class="nav-bar__header">
-            <a href="#hero" class="nav-bar__logo">{{ if .Site.Params.navbar.logo_text }} {{ .Site.Params.navbar.logo_text }} {{ else }} {{ .Site.Title | default "Add a site title" }} {{ end }}</a>
-            <div class="nav-bar__menu-button"> <i class="fa fa-bars"></i></div>
-        </div>
-        <!-- <nav class="nav-bar__menu-off"> -->
+<div id="nav-bar">
+    <div class="nav-bar__container">
+            <div class="nav-bar__header">
+                <a href="{{ if eq .Site.Params.use_hero true }}#hero{{end}}" class="nav-bar__logo">
+                    {{ if .Site.Params.navbar.logo_text }} {{ .Site.Params.navbar.logo_text }} 
+                    {{ else }} {{ .Site.Title | default "Add a site title" }} {{ end }} 
+                </a>
+                <div class="nav-bar__menu-button"> <i class="fa fa-bars"></i></div>
+            </div>
             <ul class="nav-bar__menu hide-menu">
                 {{ range where .Site.RegularPages  "Section" "sections" }}
                 {{ if ne .Params.navbar false }}
                 {{ if ne .Params.hidden true }}
-                <li class="nav-bar__menu-item">
-                      <a href="#{{ .File.BaseFileName }}">
+                <li >
+                      <a class="nav-bar__menu-item" href="#{{ .File.BaseFileName }}">
                       {{ .Params.link_text | default .Title }}
-                    </a>
+                       </a>
                 </li>
                 {{ end }} {{ end }}
                 {{ end }}
              </ul>
-        <!-- </nav> -->
-      <!-- </div> -->
+    </div>  
+    {{ if .Site.IsServer }}<div class="nav-bar__draft"> DRAFT - DRAFT - DRAFT - DRAFT </div> {{ end }}
 </div>
+
 <div class="nav-bar-spacer"></div>
